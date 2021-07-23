@@ -23,6 +23,7 @@
 		<Item Name="MOKO Graph APP.ico" Type="Document" URL="../Icon/MOKO Graph APP.ico"/>
 		<Item Name="MOKO Graph.vi" Type="VI" URL="../MOKO Graph.vi"/>
 		<Item Name="MOKO_Graph_SERVER_PARAM.lvlib" Type="Library" URL="../Web server/MOKO_Graph_SERVER_PARAM.lvlib"/>
+		<Item Name="MOKOGraphClusterIn.ctl" Type="VI" URL="../MOKOGraphClusterIn.ctl"/>
 		<Item Name="SERVER" Type="Web Service">
 			<Property Name="Bld_buildSpecName" Type="Str"></Property>
 			<Property Name="Bld_version.build" Type="Int">39</Property>
@@ -157,7 +158,6 @@
 				<Item Name="Write PNG File.vi" Type="VI" URL="/&lt;vilib&gt;/picture/png.llb/Write PNG File.vi"/>
 			</Item>
 			<Item Name="Clear Graph Button.ctl" Type="VI" URL="../Buttons/Clear Graph Button.ctl"/>
-			<Item Name="Control 2.ctl" Type="VI" URL="../Buttons/Control 2.ctl"/>
 			<Item Name="create png.vi" Type="VI" URL="../SubVI/create png.vi"/>
 			<Item Name="IS_EXE.vi" Type="VI" URL="../../MOKO_NMEA/Lib/NMEA_LIB/IS_EXE.vi"/>
 			<Item Name="REST API.ctl" Type="VI" URL="../Llb/HTTP.llb/REST API.ctl"/>
