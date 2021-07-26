@@ -18,15 +18,15 @@
 		<Item Name="Lib" Type="Folder" URL="../Lib">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="Define one period (SubVI).vi" Type="VI" URL="../SubVI/Define one period (SubVI).vi"/>
-		<Item Name="Delay.vi" Type="VI" URL="../SubVI/Delay.vi"/>
+		<Item Name="ConvStringIntoDouble (SubVI).vi" Type="VI" URL="/C/Users/sasha/OneDrive/Рабочий стол/MOKO/Plugins/MOKO_Graph/Lib/Graph/ConvStringIntoDouble (SubVI).vi"/>
 		<Item Name="MOKO Graph APP.ico" Type="Document" URL="../Icon/MOKO Graph APP.ico"/>
 		<Item Name="MOKO Graph.vi" Type="VI" URL="../MOKO Graph.vi"/>
 		<Item Name="MOKO_Graph_SERVER_PARAM.lvlib" Type="Library" URL="../Web server/MOKO_Graph_SERVER_PARAM.lvlib"/>
 		<Item Name="MOKOGraphClusterIn.ctl" Type="VI" URL="../MOKOGraphClusterIn.ctl"/>
+		<Item Name="SemiColonParserFromString(SubVI).vi" Type="VI" URL="/C/Users/sasha/OneDrive/Рабочий стол/MOKO/Plugins/MOKO_Graph/Lib/Graph/SemiColonParserFromString(SubVI).vi"/>
 		<Item Name="SERVER" Type="Web Service">
 			<Property Name="Bld_buildSpecName" Type="Str"></Property>
-			<Property Name="Bld_version.build" Type="Int">39</Property>
+			<Property Name="Bld_version.build" Type="Int">54</Property>
 			<Property Name="ws.autoIncrementVersion" Type="Bool">true</Property>
 			<Property Name="ws.disconnectInline" Type="Bool">true</Property>
 			<Property Name="ws.disconnectTypeDefs" Type="Bool">false</Property>
@@ -38,7 +38,7 @@
 			<Property Name="ws.serveDefaultDoc" Type="Bool">true</Property>
 			<Property Name="ws.SSE2" Type="Bool">true</Property>
 			<Property Name="ws.static_permissions" Type="Str"></Property>
-			<Property Name="ws.version.build" Type="Int">39</Property>
+			<Property Name="ws.version.build" Type="Int">54</Property>
 			<Property Name="ws.version.fix" Type="Int">0</Property>
 			<Property Name="ws.version.major" Type="Int">1</Property>
 			<Property Name="ws.version.minor" Type="Int">0</Property>
@@ -120,7 +120,6 @@
 				<Item Name="Directory of Top Level VI.vi" Type="VI" URL="/&lt;vilib&gt;/picture/jpeg.llb/Directory of Top Level VI.vi"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="Flip and Pad for Picture Control.vi" Type="VI" URL="/&lt;vilib&gt;/picture/bmp.llb/Flip and Pad for Picture Control.vi"/>
-				<Item Name="FormatTime String.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/FormatTime String.vi"/>
 				<Item Name="Get Type Code from I16 Array And Pos.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/Get Type Code from I16 Array And Pos.vi"/>
 				<Item Name="imagedata.ctl" Type="VI" URL="/&lt;vilib&gt;/picture/picture.llb/imagedata.ctl"/>
 				<Item Name="JSON Array.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/addons/JSON API/JSON Array/JSON Array.lvclass"/>
@@ -137,7 +136,6 @@
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
 				<Item Name="NI_WebServices.lvlib" Type="Library" URL="/&lt;vilib&gt;/wsapi/NI_WebServices.lvlib"/>
-				<Item Name="subElapsedTime.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/subElapsedTime.vi"/>
 				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
 				<Item Name="TD_Get Enum Information.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/TD_Get Enum Information.vi"/>
 				<Item Name="TD_Get Ref Info.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/TD_Get Ref Info.vi"/>
@@ -162,7 +160,6 @@
 			<Item Name="IS_EXE.vi" Type="VI" URL="../../MOKO_NMEA/Lib/NMEA_LIB/IS_EXE.vi"/>
 			<Item Name="REST API.ctl" Type="VI" URL="../Llb/HTTP.llb/REST API.ctl"/>
 			<Item Name="take_screenshot.vi" Type="VI" URL="../SubVI/take_screenshot.vi"/>
-			<Item Name="Util Convert to Base64 Ex_Plugin.vi" Type="VI" URL="../../MOKO_ExPlugin/Lib/Util_Base64/Util Convert to Base64 Ex_Plugin.vi"/>
 			<Item Name="WEB info.ctl" Type="VI" URL="../Llb/HTTP.llb/WEB info.ctl"/>
 			<Item Name="WEB method.ctl" Type="VI" URL="../Llb/HTTP.llb/WEB method.ctl"/>
 			<Item Name="WEB REQUEST.vi" Type="VI" URL="../Llb/HTTP.llb/WEB REQUEST.vi"/>
@@ -187,7 +184,7 @@
 				<Property Name="Bld_localDestDir" Type="Path">../App</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{C0B2AB0E-5909-4B81-BA30-BEA495FBD52B}</Property>
-				<Property Name="Bld_version.build" Type="Int">37</Property>
+				<Property Name="Bld_version.build" Type="Int">51</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">MOKO Graph.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../App/NI_AB_PROJECTNAME.exe</Property>
@@ -199,7 +196,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/MOKO Graph APP.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{66A7E15A-5ADE-425E-BFEB-A4E406E54A0E}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{A91C9C22-124C-4DDD-A251-480CFA9442B8}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/MOKO Graph.vi</Property>
