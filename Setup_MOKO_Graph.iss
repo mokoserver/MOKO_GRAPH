@@ -1,7 +1,7 @@
-#define SourceDir "C:\Users\sasha\OneDrive\Рабочий стол\MOKO\Plugins\MOKO_Graph\"
+#define SourceDir "D:\GitHub\MOKO\MOKO_GRAPH\App"
 #define AppName "MOKO Graph"
-#define MOKONMEA0183LinkName "MOKO Graph"
-#define MOKONMEA0183ExeName "MOKO Graph"
+#define MOKOGraphLink "MOKO Graph"
+#define MOKOGraphExe "MOKO Graph"
 #define AppPublisher "MOKO Graph"
 #define AppVersion "0.06.19.0"
 
@@ -32,10 +32,11 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
            
 
 [Files]
-Source: "App\*"; DestDir: "{app}\" ;  Flags: ignoreversion  uninsremovereadonly
+
 
 [Icons]
-
+Name: "{commondesktop}\{#MOKOGraphExe}"; Filename: "{app}\{#MOKOGraphExe}.exe";
+Name: "{group}\{#MOKOGraphExe}"; Filename: "{app}\{#MOKOGraphExe}.exe";
 
 [Code]
 
