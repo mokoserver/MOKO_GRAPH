@@ -1,0 +1,12 @@
+{
+"project_name":"MOKO Graph",
+"project_scripts":[
+{"script":"MOKO Graph Plugin.py","necessary":"false"}
+],
+"project_libraries":[
+{"script":"MOKO.py"}
+],
+"project_templates":[
+{"script":"MokoWordGraph.docx"}
+]
+}

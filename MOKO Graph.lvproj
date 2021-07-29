@@ -18,15 +18,13 @@
 		<Item Name="Lib" Type="Folder" URL="../Lib">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="ConvStringIntoDouble (SubVI).vi" Type="VI" URL="/C/Users/sasha/OneDrive/Рабочий стол/MOKO/Plugins/MOKO_Graph/Lib/Graph/ConvStringIntoDouble (SubVI).vi"/>
 		<Item Name="MOKO Graph APP.ico" Type="Document" URL="../Icon/MOKO Graph APP.ico"/>
 		<Item Name="MOKO Graph.vi" Type="VI" URL="../MOKO Graph.vi"/>
 		<Item Name="MOKO_Graph_SERVER_PARAM.lvlib" Type="Library" URL="../Web server/MOKO_Graph_SERVER_PARAM.lvlib"/>
 		<Item Name="MOKOGraphClusterIn.ctl" Type="VI" URL="../MOKOGraphClusterIn.ctl"/>
-		<Item Name="SemiColonParserFromString(SubVI).vi" Type="VI" URL="/C/Users/sasha/OneDrive/Рабочий стол/MOKO/Plugins/MOKO_Graph/Lib/Graph/SemiColonParserFromString(SubVI).vi"/>
 		<Item Name="SERVER" Type="Web Service">
 			<Property Name="Bld_buildSpecName" Type="Str"></Property>
-			<Property Name="Bld_version.build" Type="Int">54</Property>
+			<Property Name="Bld_version.build" Type="Int">91</Property>
 			<Property Name="ws.autoIncrementVersion" Type="Bool">true</Property>
 			<Property Name="ws.disconnectInline" Type="Bool">true</Property>
 			<Property Name="ws.disconnectTypeDefs" Type="Bool">false</Property>
@@ -38,7 +36,7 @@
 			<Property Name="ws.serveDefaultDoc" Type="Bool">true</Property>
 			<Property Name="ws.SSE2" Type="Bool">true</Property>
 			<Property Name="ws.static_permissions" Type="Str"></Property>
-			<Property Name="ws.version.build" Type="Int">54</Property>
+			<Property Name="ws.version.build" Type="Int">91</Property>
 			<Property Name="ws.version.fix" Type="Int">0</Property>
 			<Property Name="ws.version.major" Type="Int">1</Property>
 			<Property Name="ws.version.minor" Type="Int">0</Property>
@@ -136,6 +134,9 @@
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
 				<Item Name="NI_WebServices.lvlib" Type="Library" URL="/&lt;vilib&gt;/wsapi/NI_WebServices.lvlib"/>
+				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
+				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
+				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
 				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
 				<Item Name="TD_Get Enum Information.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/TD_Get Enum Information.vi"/>
 				<Item Name="TD_Get Ref Info.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/TD_Get Ref Info.vi"/>
@@ -157,12 +158,11 @@
 			</Item>
 			<Item Name="Clear Graph Button.ctl" Type="VI" URL="../Buttons/Clear Graph Button.ctl"/>
 			<Item Name="create png.vi" Type="VI" URL="../SubVI/create png.vi"/>
-			<Item Name="IS_EXE.vi" Type="VI" URL="../../MOKO_NMEA/Lib/NMEA_LIB/IS_EXE.vi"/>
-			<Item Name="REST API.ctl" Type="VI" URL="../Llb/HTTP.llb/REST API.ctl"/>
+			<Item Name="HTTP.lvlib" Type="Library" URL="../Llb/HTTP.llb/HTTP.lvlib"/>
+			<Item Name="HttpRequestHelper.dll" Type="Document" URL="../../MOKO_Common_NET/HttpRequestHelper/HttpRequestHelper/bin/Debug/HttpRequestHelper.dll"/>
+			<Item Name="IS_EXE.vi" Type="VI" URL="../SubVI/IS_EXE.vi"/>
+			<Item Name="REST API.lvlib" Type="Library" URL="../Llb/HTTP.llb/REST API.lvlib"/>
 			<Item Name="take_screenshot.vi" Type="VI" URL="../SubVI/take_screenshot.vi"/>
-			<Item Name="WEB info.ctl" Type="VI" URL="../Llb/HTTP.llb/WEB info.ctl"/>
-			<Item Name="WEB method.ctl" Type="VI" URL="../Llb/HTTP.llb/WEB method.ctl"/>
-			<Item Name="WEB REQUEST.vi" Type="VI" URL="../Llb/HTTP.llb/WEB REQUEST.vi"/>
 			<Item Name="ws_runtime.dll" Type="Document" URL="ws_runtime.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -184,7 +184,7 @@
 				<Property Name="Bld_localDestDir" Type="Path">../App</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{C0B2AB0E-5909-4B81-BA30-BEA495FBD52B}</Property>
-				<Property Name="Bld_version.build" Type="Int">51</Property>
+				<Property Name="Bld_version.build" Type="Int">88</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">MOKO Graph.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../App/NI_AB_PROJECTNAME.exe</Property>
@@ -196,7 +196,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/MOKO Graph APP.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{A91C9C22-124C-4DDD-A251-480CFA9442B8}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{4EA1DABB-3178-4E85-A990-8AC06C6B794F}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/MOKO Graph.vi</Property>
