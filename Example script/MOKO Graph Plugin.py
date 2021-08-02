@@ -18,6 +18,19 @@ def DeleteLineCommand(numLine, index):
     #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
     MOKO.Report(f'MOKOGraph', 'set', 'table', f'Delete Line №{numLine}')
 
+def HideLineCommand(numLine, index):
+    MOKO.Plugin('MOKO Graph', 'set', f"Hide Line={numLine}")
+    #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
+    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Hide Line №{numLine}')
+
+def ShowLineCommand(numLine, index):
+    MOKO.Plugin('MOKO Graph', 'set', f"Show Line={numLine}")
+    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Show Line №{numLine}')
+
+def ShowLineOnlyCommand(numLine, index):
+    MOKO.Plugin('MOKO Graph', 'set', f"Show Line=Only;{numLine}")
+    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Show Line Only №{numLine}')
+
 def AddGraphSettCommand(Value_OyOx, Name_OyOx, index):
     MOKO.Plugin('MOKO Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx}")
     #MOKO.Report(f'AddGraphSettings_{index}', 'set', 'string', f'Add Graph Settings')
@@ -42,6 +55,8 @@ def ClearGraphCommand(index):
 AutoscaleCommand("No", 1)
 
 time.sleep(4)
+
+#MOKO.EndScript()
 
 ArrOx = [0,1,2,3,4]
 ArrOy = [0,1,2,3,4]
@@ -132,14 +147,10 @@ ScreenshotCommand(1)
 screen = MOKO.Plugin('MOKO Graph', 'get', 'InstantScreenshot', 'string')
 MOKO.Report("Screenshot_1", 'set', 'picture', screen)
 
-numLine = 0
-DeleteLineCommand(numLine, 2)
-numLine = 0
-DeleteLineCommand(numLine, 3)
-numLine = 0
-DeleteLineCommand(numLine, 4)
-numLine = 0
-DeleteLineCommand(numLine, 5)
+HideLineCommand(0, 1)
+HideLineCommand(1, 2)
+HideLineCommand(2, 3)
+HideLineCommand(3, 4)
 
 AutoscaleCommand("No", 6)
 
@@ -156,8 +167,8 @@ AddLineCommand(ArrOy, ArrOx,LineWidth,Color,6)
 
 ### O ###
 
-ArrOx = [7,7,7,9,9,9,7,9]
-ArrOy = [4,6,6,6,4,6,4,4]
+ArrOx = [7,7,9,9,7]
+ArrOy = [4,6,6,4,4]
 LineWidth = 3
 Color = 'Green'
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,7)
@@ -172,11 +183,35 @@ AddLineCommand(ArrOy, ArrOx,LineWidth,Color,8)
 
 ### O ###
 
-ArrOx = [12,12,12,14,12,14,14,14]
-ArrOy = [4,6,6,6,4,4,4,6]
+ArrOx = [12,12,14,14,12]
+ArrOy = [4,6,6,4,4]
 LineWidth = 3
 Color = 'Green'
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,9)
+
+time.sleep(4)
+
+ShowLineCommand('All', 3)
+
+time.sleep(4)
+
+numLine = [4,5,6,7]
+ShowLineOnlyCommand(numLine, 2)
+
+time.sleep(4)
+
+ShowLineCommand('All', 3)
+
+time.sleep(4)
+
+numLine = 0
+DeleteLineCommand(numLine, 2)
+numLine = 0
+DeleteLineCommand(numLine, 3)
+numLine = 0
+DeleteLineCommand(numLine, 4)
+numLine = 0
+DeleteLineCommand(numLine, 5)
 
 time.sleep(4)
 
