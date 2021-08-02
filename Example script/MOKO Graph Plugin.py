@@ -51,7 +51,6 @@ def ClearGraphCommand(index):
     #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Clear Graph command has done')
     MOKO.Report(f'MOKOGraph', 'set', 'table', f'Clear Graph command has done')
 
-
 AutoscaleCommand("No", 1)
 
 time.sleep(4)
