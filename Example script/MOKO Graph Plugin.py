@@ -1,86 +1,90 @@
 import MOKO
 import time
 
-MOKO.Report(f'MOKOGraph', 'info', 'table', 'Commands#150')
+MOKO.Report('Graph', 'info', 'table', 'Commands#150')
 
 def AddLineCommand(ArrOy, ArrOx,LineWidth,Color,index):
     #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
-    MOKO.Plugin('MOKO Graph', 'set', f"Add Line={ArrOy};{ArrOx};{LineWidth};{Color}")
+    MOKO.Plugin('Graph', 'set', f"Add Line={ArrOy};{ArrOx};{LineWidth};{Color}")
     #MOKO.Report(f'AddLine_{index}', 'set', 'string', f'Add Line №{index}')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Add Line №{index}')
+    MOKO.Report('Graph', 'set', 'table', f'Add Line №{index}')
     time.sleep(4)
 
-def ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color,index):
+def ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color):
     #Изменить параметры уже добавленной линии
-    MOKO.Plugin('MOKO Graph', 'set', f"Change Line={numLine};{ArrOy};{ArrOx};{LineWidth};{Color}")
+    MOKO.Plugin('Graph', 'set', f"Change Line={numLine};{ArrOy};{ArrOx};{LineWidth};{Color}")
     #MOKO.Report(f'ChangeLine_{index}', 'set', 'string', f'Change Line №{numLine}')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Change Line №{numLine}')
+    MOKO.Report('Graph', 'set', 'table', f'Change Line №{numLine}')
     time.sleep(4)
 
-def DeleteLineCommand(numLine, index):
+def DeleteLineCommand(numLine):
     #Команда "All" - удаление всех линий
     #Можно указывать как одну линию, так и массив с номерами линий для удаления
-    MOKO.Plugin('MOKO Graph', 'set', f"Delete Line={numLine}")
+    MOKO.Plugin('Graph', 'set', f"Delete Line={numLine}")
     #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Delete Line №{numLine}')
+    MOKO.Report('Graph', 'set', 'table', f'Delete Line №{numLine}')
     time.sleep(4)
 
-def HideLineCommand(numLine, index):
+def HideLineCommand(numLine):
     #Команд: "All" - скрыть все линии, которые есть на графике, также
     #Можно указывать как одну линию, так и массив с номерами линий для скрытия
-    MOKO.Plugin('MOKO Graph', 'set', f"Hide Line={numLine}")
+    MOKO.Plugin('Graph', 'set', f"Hide Line={numLine}")
     #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Hide Line №{numLine}')
+    MOKO.Report('Graph', 'set', 'table', f'Hide Line №{numLine}')
     time.sleep(4)
 
-def ShowLineCommand(numLine, index):
+def ShowLineCommand(numLine):
     #Команд: "All" - показать все линии, которые есть на графике, также
     #Можно указывать как одну линию, так и массив с номерами линий для отображения
     #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
     #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
-    MOKO.Plugin('MOKO Graph', 'set', f"Show Line={numLine}")
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Show Line №{numLine}')
+    MOKO.Plugin('Graph', 'set', f"Show Line={numLine}")
+    MOKO.Report('Graph', 'set', 'table', f'Show Line №{numLine}')
     time.sleep(4)
 
-def ShowLineOnlyCommand(numLine, index):
+def ShowLineOnlyCommand(numLine):
     #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
     #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
-    MOKO.Plugin('MOKO Graph', 'set', f"Show Line=Only;{numLine}")
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Show Line Only №{numLine}')
+    MOKO.Plugin('Graph', 'set', f"Show Line=Only;{numLine}")
+    MOKO.Report('Graph', 'set', 'table', f'Show Line Only №{numLine}')
     time.sleep(4)
 
-def AddGraphSettCommand(Value_OyOx, Name_OyOx, index):
+def AddGraphSettCommand(Value_OyOx, Name_OyOx):
     #Добавление подписей осей + min&max значения осей
-    MOKO.Plugin('MOKO Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx}")
+    MOKO.Plugin('Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx}")
     #MOKO.Report(f'AddGraphSettings_{index}', 'set', 'string', f'Add Graph Settings')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Add Graph Settings')
+    MOKO.Report('Graph', 'set', 'table', 'Add Graph Settings')
     time.sleep(4)
 
-def AutoscaleCommand(mode, index):
+def AutoscaleCommand(mode):
     #Команды: "No" - отключить Autoscale осей
     #         "Yes" - включить Autoscale осей
     #         "Only Ox" - включить Autoscale только для оси Ox
     #         "Only Oy" - включить Autoscale только для оси Оy
-    MOKO.Plugin('MOKO Graph', 'set', f"Autoscale={mode}")
+    MOKO.Plugin('Graph', 'set', f"Autoscale={mode}")
     #MOKO.Report(f'Autoscale_{index}', 'set', 'string', f'Autoscale = {mode}')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Autoscale = {mode}')
+    MOKO.Report('Graph', 'set', 'table', f'Autoscale = {mode}')
     time.sleep(4)
 
 def ScreenshotCommand(index):
     #Сделать скриншот и сохранить в папку
-    MOKO.Plugin('MOKO Graph', 'set', f"Screenshot")
+    MOKO.Plugin('Graph', 'set', "Screenshot")
     #MOKO.Report(f'Screenshot_{index}', 'set', 'string', f'Screenshot #{index} has done')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Screenshot #{index} has done')
+    MOKO.Report('Graph', 'set', 'table', f'Screenshot #{index} has done')
     time.sleep(4)
 
-def ClearGraphCommand(index):
+def ClearGraphCommand():
     #Очистить график
-    MOKO.Plugin('MOKO Graph', 'set', f"Clear Graph")
+    MOKO.Plugin('Graph', 'set', "Clear Graph")
     #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Clear Graph command has done')
-    MOKO.Report(f'MOKOGraph', 'set', 'table', f'Clear Graph command has done')
+    MOKO.Report('Graph', 'set', 'table', 'Clear Graph command has done')
     time.sleep(4)
 
-AutoscaleCommand("No", 1)
+MOKO.Plugin('Graph', 'init', '')
+
+time.sleep(4)
+
+AutoscaleCommand("No")
 
 ArrOx = [0,1,2,3,4]
 ArrOy = [0,1,2,3,4]
@@ -94,7 +98,7 @@ LineWidth = 2
 Color = 'Green'
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,2)
 
-AutoscaleCommand("Only Oy", 2)
+AutoscaleCommand("Only Oy")
 
 ArrOx = [0,1,2,3,4]
 ArrOy = [2,3,4,5,6]
@@ -102,7 +106,7 @@ LineWidth = 3
 Color = [255,0,0] #Red
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,3)
 
-AutoscaleCommand("Only Ox", 3)
+AutoscaleCommand("Only Ox")
 
 ArrOx = [0,1,2,3,5]
 ArrOy = [3,4,5,6,8]
@@ -116,43 +120,43 @@ LineWidth = 5
 Color = [255,0,255] #Magenta
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,5)
 
-AutoscaleCommand("No", 4)
+AutoscaleCommand("No")
 
 Value_OyOx = [-1,10,0,6]
 Name_OyOx = ["Amplitude", "Frequency"]
-AddGraphSettCommand(Value_OyOx, Name_OyOx, 1)
+AddGraphSettCommand(Value_OyOx, Name_OyOx)
 
 numLine = 0
 ArrOx = [0,1,2,3,4]
 ArrOy = [-1,0,1,2,3]
 LineWidth = 5
 Color = 'Green'
-ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color,1)
+ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color)
 
 numLine = 1
-DeleteLineCommand(numLine, 1)
+DeleteLineCommand(numLine)
 
 numLine = 1
 ArrOx = [0,1,2,3,4]
 ArrOy = [1,2,3,4,5]
 LineWidth = 1
 Color = 'Green'
-ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color,2)
+ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color)
 
-AutoscaleCommand("Yes", 5)
+AutoscaleCommand("Yes")
 
 ScreenshotCommand(1)
-screen = MOKO.Plugin('MOKO Graph', 'get', 'InstantScreenshot', 'string')
+screen = MOKO.Plugin('Graph', 'get', 'InstantScreenshot', 'string')
 MOKO.Report("Screenshot_1", 'set', 'picture', screen)
 
 numLine = [0,1,2,3]
-HideLineCommand(numLine, 1)
+HideLineCommand(numLine)
 
-AutoscaleCommand("No", 6)
+AutoscaleCommand("No")
 
 Value_OyOx = [0,7,0,16]
 Name_OyOx = ["Amplitude", "Frequency"]
-AddGraphSettCommand(Value_OyOx, Name_OyOx, 2)
+AddGraphSettCommand(Value_OyOx, Name_OyOx)
 
 ### M ###
 ArrOx = [2,3,4,5,6]
@@ -185,26 +189,26 @@ LineWidth = 3
 Color = 'Green'
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,9)
 
-ShowLineCommand('All', 3)
+ShowLineCommand('All')
 
 numLine = [4,5,6,7]
-ShowLineOnlyCommand(numLine, 2)
+ShowLineOnlyCommand(numLine)
 
 numLine = [0,1,2]
-ShowLineCommand(numLine, 3)
+ShowLineCommand(numLine)
 
-ShowLineCommand('All', 4)
+ShowLineCommand('All')
 
-HideLineCommand('All', 3)
+HideLineCommand('All')
 
-ShowLineCommand('All', 4)
+ShowLineCommand('All')
 
 numLine = [0,1,2,3]
-DeleteLineCommand(numLine, 2)
+DeleteLineCommand(numLine)
 
-DeleteLineCommand('All', 3)
+DeleteLineCommand('All')
 
-AutoscaleCommand("Yes", 7)
+AutoscaleCommand("Yes")
 
 ArrOx = [0.1,1.2,2.3,3.4,4.5]
 ArrOy = [0.1,1.2,2.3,3.4,4.5]
@@ -212,7 +216,7 @@ LineWidth = 1
 Color = 'Blue'
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,1)
 
-ClearGraphCommand(1)
+ClearGraphCommand()
 
 MOKO.Program('control', 'set', 'save word report')
 
