@@ -158,8 +158,8 @@ Name_OyOx = ["Amplitude", "Frequency"]
 AddGraphSettCommand(Value_OyOx, Name_OyOx, 2)
 
 ### M ###
-ArrOx = [2,3,3,4,4,5,5,6]
-ArrOy = [4,6,6,5,5,6,6,4]
+ArrOx = [2,3,4,5,6]
+ArrOy = [4,6,5,6,4]
 LineWidth = 3
 Color = 'Blue'
 AddLineCommand(ArrOy, ArrOx,LineWidth,Color,6)
