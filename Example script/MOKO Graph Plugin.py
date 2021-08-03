@@ -204,13 +204,16 @@ DeleteLineCommand(numLine, 2)
 
 DeleteLineCommand('All', 3)
 
+AutoscaleCommand("Yes", 7)
+
+ArrOx = [0.1,1.2,2.3,3.4,4.5]
+ArrOy = [0.1,1.2,2.3,3.4,4.5]
+LineWidth = 1
+Color = 'Blue'
+AddLineCommand(ArrOy, ArrOx,LineWidth,Color,1)
+
 ClearGraphCommand(1)
 
 MOKO.Program('control', 'set', 'save word report')
 
 MOKO.EndScript()
-
-#MOKO.Plugin('MOKO Graph', 'set', f"Autoscale=Yes") Autoscale on
-#MOKO.Plugin('MOKO Graph', 'set', f"Autoscale=No")  Autoscale off
-#MOKO.Plugin('MOKO Graph', 'set', f"Autoscale=Ox")  Autoscale Ox on, Oy без изменений
-#MOKO.Plugin('MOKO Graph', 'set', f"Autoscale=Oy")  Autoscale Oy on, Ox без изменений
