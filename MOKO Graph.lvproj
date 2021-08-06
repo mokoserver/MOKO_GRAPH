@@ -18,7 +18,7 @@
 		<Item Name="Lib" Type="Folder" URL="../Lib">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="Graph.vi" Type="VI" URL="../../Graph.vi"/>
+		<Item Name="Graph.vi" Type="VI" URL="../Graph.vi"/>
 		<Item Name="MOKO Graph APP.ico" Type="Document" URL="../Icon/MOKO Graph APP.ico"/>
 		<Item Name="MOKO Graph.vi" Type="VI" URL="../MOKO Graph.vi"/>
 		<Item Name="MOKO_Graph_SERVER_PARAM.lvlib" Type="Library" URL="../Web server/MOKO_Graph_SERVER_PARAM.lvlib"/>
