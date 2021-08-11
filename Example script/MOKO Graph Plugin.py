@@ -3,16 +3,16 @@ import time
 
 MOKO.Report('Graph', 'info', 'table', 'Commands#150')
 
-def AddLineCommand(ArrOy, ArrOx,LineWidth,Color,index):
+def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,index):
     #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
-    MOKO.Plugin('Graph', 'set', f"Add Line={ArrOy};{ArrOx};{LineWidth};{Color}")
+    MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color}")
     #MOKO.Report(f'AddLine_{index}', 'set', 'string', f'Add Line №{index}')
     MOKO.Report('Graph', 'set', 'table', f'Add Line №{index}')
     time.sleep(4)
 
-def ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color):
+def ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color):
     #Изменить параметры уже добавленной линии
-    MOKO.Plugin('Graph', 'set', f"Change Line={numLine};{ArrOy};{ArrOx};{LineWidth};{Color}")
+    MOKO.Plugin('Graph', 'set', f"Change Line={numLine};{name};{ArrOy};{ArrOx};{LineWidth};{Color}")
     #MOKO.Report(f'ChangeLine_{index}', 'set', 'string', f'Change Line №{numLine}')
     MOKO.Report('Graph', 'set', 'table', f'Change Line №{numLine}')
     time.sleep(4)
@@ -80,45 +80,68 @@ def ClearGraphCommand():
     MOKO.Report('Graph', 'set', 'table', 'Clear Graph command has done')
     time.sleep(4)
 
+def MaxValueCommand(numLine):
+    #Найти максимальное значение выбранной линии и установить курсор на это место
+    MOKO.Plugin('Graph', 'set', f"Max={numLine}")
+    #MOKO.Report(f'Autoscale_{index}', 'set', 'string', f'Autoscale = {mode}')
+    MOKO.Report('Graph', 'set', 'table', f'Max = {numLine}')
+    time.sleep(4)
+
 MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
+Value_OyOx = [0,5,0,8]
+Name_OyOx = ["Amplitude", "Frequency"]
+AddGraphSettCommand(Value_OyOx, Name_OyOx)
+
 AutoscaleCommand("No")
 
+name = 'Plot 1'
 ArrOx = [0,1,2,3,4]
 ArrOy = [0,1,2,3,4]
 LineWidth = 1
 Color = 'Blue'
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,1)
+AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,1)
 
+name = 'Plot 1'
 ArrOx = [0,1,2,3,4]
 ArrOy = [1,2,3,4,5]
 LineWidth = 2
 Color = 'Green'
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,2)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,2)
+
+name = 'Plot 2'
+ArrOx = [0,1,2,3,4]
+ArrOy = [1,2,3,4,5]
+LineWidth = 2
+Color = 'Green'
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,2)
 
 AutoscaleCommand("Only Oy")
 
+name = 'Plot 3'
 ArrOx = [0,1,2,3,4]
 ArrOy = [2,3,4,5,6]
 LineWidth = 3
 Color = [255,0,0] #Red
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,3)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,3)
 
 AutoscaleCommand("Only Ox")
 
+name = 'Plot 4'
 ArrOx = [0,1,2,3,5]
 ArrOy = [3,4,5,6,8]
 LineWidth = 4
 Color = [255,255,0] #Yellow
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,4)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,4)
 
+name = 'Plot 5'
 ArrOx = [0,1,2,3,4]
 ArrOy = [4,5,6,7,8]
 LineWidth = 5
 Color = [255,0,255] #Magenta
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,5)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,5)
 
 AutoscaleCommand("No")
 
@@ -126,22 +149,24 @@ Value_OyOx = [-1,10,0,6]
 Name_OyOx = ["Amplitude", "Frequency"]
 AddGraphSettCommand(Value_OyOx, Name_OyOx)
 
+name = 'Plot 1'
 numLine = 0
 ArrOx = [0,1,2,3,4]
 ArrOy = [-1,0,1,2,3]
 LineWidth = 5
 Color = 'Green'
-ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color)
+ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color)
 
 numLine = 1
 DeleteLineCommand(numLine)
 
+name = 'Plot 7'
 numLine = 1
 ArrOx = [0,1,2,3,4]
 ArrOy = [1,2,3,4,5]
 LineWidth = 1
 Color = 'Green'
-ChangeLineCommand(numLine, ArrOy, ArrOx,LineWidth,Color)
+ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color)
 
 AutoscaleCommand("Yes")
 
@@ -159,35 +184,39 @@ Name_OyOx = ["Amplitude", "Frequency"]
 AddGraphSettCommand(Value_OyOx, Name_OyOx)
 
 ### M ###
+name = 'Plot 7'
 ArrOx = [2,3,4,5,6]
 ArrOy = [4,6,5,6,4]
 LineWidth = 3
 Color = 'Blue'
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,6)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,6)
 
 ### O ###
 
+name = 'Plot 8'
 ArrOx = [7,7,9,9,7]
 ArrOy = [4,6,6,4,4]
 LineWidth = 3
 Color = 'Green'
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,7)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,7)
 
 ### K ###
 
+name = 'Plot 9'
 ArrOx = [10,10,10,11,10,11]
 ArrOy = [4,6,5,6,5,4]
 LineWidth = 3
 Color = 'Blue'
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,8)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,8)
 
 ### O ###
 
+name = 'Plot 10'
 ArrOx = [12,12,14,14,12]
 ArrOy = [4,6,6,4,4]
 LineWidth = 3
 Color = 'Green'
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,9)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,9)
 
 ShowLineCommand('All')
 
@@ -210,11 +239,18 @@ DeleteLineCommand('All')
 
 AutoscaleCommand("Yes")
 
+name = 'Plot 11'
 ArrOx = [0.1,1.2,2.3,3.4,4.5]
 ArrOy = [0.1,1.2,2.3,3.4,4.5]
 LineWidth = 1
 Color = 'Blue'
-AddLineCommand(ArrOy, ArrOx,LineWidth,Color,1)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,1)
+
+numLine = 0
+MaxValueCommand(numLine)
+
+max = MOKO.Plugin('Graph', 'get', f"Max={0}", 'string')
+MOKO.Report('Graph', 'set', 'table', f'Max = {max}')
 
 ClearGraphCommand()
 
