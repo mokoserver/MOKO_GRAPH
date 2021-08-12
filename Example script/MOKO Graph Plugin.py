@@ -252,7 +252,7 @@ MaxValueCommand(numLine)
 max = MOKO.Plugin('Graph', 'get', f"Max={0}", 'string')
 MOKO.Report('Graph', 'set', 'table', f'Max = {max}')
 
-ClearGraphCommand()
+#ClearGraphCommand()
 
 MOKO.Program('control', 'set', 'save word report')
 
