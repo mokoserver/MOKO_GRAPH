@@ -25,7 +25,7 @@
 		<Item Name="MOKOGraphClusterIn.ctl" Type="VI" URL="../MOKOGraphClusterIn.ctl"/>
 		<Item Name="SERVER" Type="Web Service">
 			<Property Name="Bld_buildSpecName" Type="Str"></Property>
-			<Property Name="Bld_version.build" Type="Int">130</Property>
+			<Property Name="Bld_version.build" Type="Int">133</Property>
 			<Property Name="ws.autoIncrementVersion" Type="Bool">true</Property>
 			<Property Name="ws.disconnectInline" Type="Bool">true</Property>
 			<Property Name="ws.disconnectTypeDefs" Type="Bool">false</Property>
@@ -37,7 +37,7 @@
 			<Property Name="ws.serveDefaultDoc" Type="Bool">true</Property>
 			<Property Name="ws.SSE2" Type="Bool">true</Property>
 			<Property Name="ws.static_permissions" Type="Str"></Property>
-			<Property Name="ws.version.build" Type="Int">130</Property>
+			<Property Name="ws.version.build" Type="Int">133</Property>
 			<Property Name="ws.version.fix" Type="Int">0</Property>
 			<Property Name="ws.version.major" Type="Int">1</Property>
 			<Property Name="ws.version.minor" Type="Int">0</Property>
@@ -186,7 +186,7 @@
 				<Property Name="Bld_localDestDir" Type="Path">../App</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{C0B2AB0E-5909-4B81-BA30-BEA495FBD52B}</Property>
-				<Property Name="Bld_version.build" Type="Int">127</Property>
+				<Property Name="Bld_version.build" Type="Int">129</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">MOKO Graph.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../App/NI_AB_PROJECTNAME.exe</Property>
