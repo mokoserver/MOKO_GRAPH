@@ -184,7 +184,7 @@ Name_OyOx = ["Amplitude", "Frequency"]
 AddGraphSettCommand(Value_OyOx, Name_OyOx)
 
 ### M ###
-name = 'Plot 7'
+name = 'Plot 12'
 ArrOx = [2,3,4,5,6]
 ArrOy = [4,6,5,6,4]
 LineWidth = 3
