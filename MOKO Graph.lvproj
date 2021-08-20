@@ -18,13 +18,14 @@
 		<Item Name="Lib" Type="Folder" URL="../Lib">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
+		<Item Name="ExGraph.vi" Type="VI" URL="../ExGraph.vi"/>
 		<Item Name="MOKO Graph APP.ico" Type="Document" URL="../Icon/MOKO Graph APP.ico"/>
 		<Item Name="MOKO Graph.vi" Type="VI" URL="../MOKO Graph.vi"/>
 		<Item Name="MOKO_Graph_SERVER_PARAM.lvlib" Type="Library" URL="../Web server/MOKO_Graph_SERVER_PARAM.lvlib"/>
 		<Item Name="MOKOGraphClusterIn.ctl" Type="VI" URL="../MOKOGraphClusterIn.ctl"/>
 		<Item Name="SERVER" Type="Web Service">
 			<Property Name="Bld_buildSpecName" Type="Str"></Property>
-			<Property Name="Bld_version.build" Type="Int">136</Property>
+			<Property Name="Bld_version.build" Type="Int">147</Property>
 			<Property Name="ws.autoIncrementVersion" Type="Bool">true</Property>
 			<Property Name="ws.disconnectInline" Type="Bool">true</Property>
 			<Property Name="ws.disconnectTypeDefs" Type="Bool">false</Property>
@@ -36,7 +37,7 @@
 			<Property Name="ws.serveDefaultDoc" Type="Bool">true</Property>
 			<Property Name="ws.SSE2" Type="Bool">true</Property>
 			<Property Name="ws.static_permissions" Type="Str"></Property>
-			<Property Name="ws.version.build" Type="Int">136</Property>
+			<Property Name="ws.version.build" Type="Int">147</Property>
 			<Property Name="ws.version.fix" Type="Int">0</Property>
 			<Property Name="ws.version.major" Type="Int">1</Property>
 			<Property Name="ws.version.minor" Type="Int">0</Property>
@@ -158,6 +159,7 @@
 				<Item Name="Write PNG File.vi" Type="VI" URL="/&lt;vilib&gt;/picture/png.llb/Write PNG File.vi"/>
 			</Item>
 			<Item Name="Clear Graph Button.ctl" Type="VI" URL="../Buttons/Clear Graph Button.ctl"/>
+			<Item Name="ConvStringIntoDouble (SubVI).vi" Type="VI" URL="../Lib/Graph/ConvStringIntoDouble (SubVI).vi"/>
 			<Item Name="create png.vi" Type="VI" URL="../SubVI/create png.vi"/>
 			<Item Name="HTTP.lvlib" Type="Library" URL="../Llb/HTTP.llb/HTTP.lvlib"/>
 			<Item Name="HttpRequestHelper.dll" Type="Document" URL="../../MOKO_Common_NET/HttpRequestHelper/HttpRequestHelper/bin/Debug/HttpRequestHelper.dll"/>
@@ -185,7 +187,7 @@
 				<Property Name="Bld_localDestDir" Type="Path">../App</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{C0B2AB0E-5909-4B81-BA30-BEA495FBD52B}</Property>
-				<Property Name="Bld_version.build" Type="Int">131</Property>
+				<Property Name="Bld_version.build" Type="Int">141</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">MOKO Graph.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../App/NI_AB_PROJECTNAME.exe</Property>
@@ -197,10 +199,10 @@
 				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/MOKO Graph APP.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{35E81123-916D-4FEF-9131-BBC2CC7173CC}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{790951C6-29B9-4722-8B5B-0F821C4ECDBD}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[1].itemID" Type="Ref">/My Computer/MOKO Graph.vi</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/ExGraph.vi</Property>
 				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[1].type" Type="Str">VI</Property>
 				<Property Name="SourceCount" Type="Int">2</Property>
