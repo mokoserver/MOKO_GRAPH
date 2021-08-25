@@ -1,0 +1,12 @@
+{
+"project_name":"1",
+"project_scripts":[
+{"script":"1.py","necessary":"false"}
+],
+"project_libraries":[
+{"script":"MOKO.py"}
+],
+"project_templates":[
+{"script":"1.docx"}
+]
+}
