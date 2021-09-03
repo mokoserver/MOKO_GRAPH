@@ -1,0 +1,12 @@
+{
+"project_name":"2_SinusSigs",
+"project_scripts":[
+{"script":"2_SinusSigs.py","necessary":"false"}
+],
+"project_libraries":[
+{"script":"MOKO.py"}
+],
+"project_templates":[
+{"script":"2_SinusSigs.docx"}
+]
+}

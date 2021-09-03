@@ -1,0 +1,12 @@
+{
+"project_name":"FromPresent",
+"project_scripts":[
+{"script":"FromPresent.py","necessary":"false"}
+],
+"project_libraries":[
+{"script":"MOKO.py"}
+],
+"project_templates":[
+{"script":"FromPresent.docx"}
+]
+}

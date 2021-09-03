@@ -1,0 +1,12 @@
+{
+"project_name":"SinusWithDifferentFreq",
+"project_scripts":[
+{"script":"SinusWithDifferentFreq.py","necessary":"false"}
+],
+"project_libraries":[
+{"script":"MOKO.py"}
+],
+"project_templates":[
+{"script":"SinusWithDifferentFreq.docx"}
+]
+}
