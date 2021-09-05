@@ -4,6 +4,13 @@ import random
 
 MOKO.Report('Graph', 'info', 'table', 'Commands#150')
 
+def WriteGraphCommand():
+    #Вывести данные на графике
+    MOKO.Plugin('Graph', 'set', "Write Graph")
+    #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Write Graph command has done')
+    #MOKO.Report('Graph', 'set', 'table', 'Write Graph command has done')
+    #time.sleep(4)
+
 def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,index):
     #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
     MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
@@ -136,6 +143,8 @@ Color = '00FFFF' #Blue
 Visible = 'Yes'
 AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
+WriteGraphCommand()
+
 MOKO.Program('tree', 'set', 'select = ' + 'Plot4')
 MOKO.Program('tree', 'set', 'chosen = passed')
 
@@ -253,6 +262,8 @@ Color = 'FF0000' #Red
 Visible = 'Yes'
 AddLineCommand(name,ArrOy1, ArrOx1,LineWidth,Color,Visible,2)
 
+WriteGraphCommand()
+
 MOKO.Program('tree', 'set', 'select = ' + 'Plot5')
 MOKO.Program('tree', 'set', 'chosen = passed')
 
@@ -270,6 +281,8 @@ LineWidth = 2
 Color = '00FF00' #Lime
 Visible = 'Yes'
 AddLineCommand(name,ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
+
+WriteGraphCommand()
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot6')
 MOKO.Program('tree', 'set', 'chosen = passed')

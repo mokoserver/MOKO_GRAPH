@@ -5,6 +5,8 @@ import random
 
 MOKO.Report('Graph', 'info', 'table', '№#50;x#70;y#70;№#50;x#70;y#70;')
 
+
+
 def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,index):
     #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
     MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")

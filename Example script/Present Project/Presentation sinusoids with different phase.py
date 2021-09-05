@@ -5,6 +5,13 @@ import random
 
 MOKO.Report('Graph', 'info', 'table', '№#50;x#70;y#70;№#50;x#70;y#70;№#50;x#70;y#70')
 
+def WriteGraphCommand():
+    #Вывести данные на графике
+    MOKO.Plugin('Graph', 'set', "Write Graph")
+    #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Write Graph command has done')
+    #MOKO.Report('Graph', 'set', 'table', 'Write Graph command has done')
+    #time.sleep(4)
+
 def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,index):
     #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
     MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
@@ -112,6 +119,8 @@ MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
+ClearGraphCommand()
+
 #High Mask
 
 Value_OyOx = [-400,400,0,0.04]
@@ -128,6 +137,8 @@ Color = "FF00FF" #Magenta
 Visible = "Yes"
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
+WriteGraphCommand()
+
 #5th Plot
 name = "Plot 1"
 ArrOy = [-300,-300]
@@ -136,6 +147,8 @@ LineWidth = 3
 Color = "FFFF00" #Yellow
 Visible = "Yes"
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
+
+WriteGraphCommand()
 
 #5th Plot
 name = "Plot 1"
@@ -146,6 +159,7 @@ Color = "0" #Black
 Visible = "Yes"
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
+WriteGraphCommand()
 
 #Region Status
 #description: Frequency;Phase;Width;Color;Visible
@@ -168,6 +182,8 @@ LineWidth = 3
 Color = "00FF00" #Lime
 Visible = "Yes"
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
+
+WriteGraphCommand()
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot 1')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -194,6 +210,8 @@ Color = "00FFFF" #Aqua
 Visible = "Yes"
 AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
 
+WriteGraphCommand()
+
 MOKO.Program('tree', 'set', 'select = ' + 'Plot2')
 MOKO.Program('tree', 'set', 'chosen = passed')
 # EndRegion Status
@@ -218,6 +236,8 @@ LineWidth = 3
 Color = "FF0000" #Red
 Visible = "Yes"
 AddLineCommand(name, ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
+
+WriteGraphCommand()
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot3')
 MOKO.Program('tree', 'set', 'chosen = passed')
