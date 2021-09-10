@@ -21,6 +21,13 @@ def ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible):
    # MOKO.Report('Graph', 'set', 'table', f'Change Line №{numLine}')
     #time.sleep(4)
 
+def LegendCommand(index):
+    #Сделать скриншот и сохранить в папку
+    MOKO.Plugin('Graph', 'set', "Legend")
+    #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
+    #MOKO.Report('Graph', 'set', 'table', f'LegendCommand has done')
+    #time.sleep(4)
+
 def DeleteLineCommand(numLine):
     #Команда "All" - удаление всех линий
     #Можно указывать как одну линию, так и массив с номерами линий для удаления

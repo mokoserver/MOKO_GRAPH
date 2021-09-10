@@ -83,6 +83,14 @@ def ScreenshotCommand(index):
     #MOKO.Report('Graph', 'set', 'table', f'Screenshot #{index} has done')
     #time.sleep(4)
 
+def LegendCommand(index):
+    #Сделать скриншот и сохранить в папку
+    MOKO.Plugin('Graph', 'set', "Legend")
+    #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
+    #MOKO.Report('Graph', 'set', 'table', f'LegendCommand has done')
+    #time.sleep(4)
+
+
 def ClearGraphCommand():
     #Очистить график
     MOKO.Plugin('Graph', 'set', "Clear Graph")
@@ -115,7 +123,7 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
                                               f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)}')
         i = i + 1
 
-MOKO.Plugin('Graph', 'init', '')
+#MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
@@ -183,6 +191,8 @@ Color = "00FF00" #Lime
 Visible = "Yes"
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
+#LegendCommand(1)
+
 WriteGraphCommand()
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot 1')
@@ -210,6 +220,8 @@ Color = "00FFFF" #Aqua
 Visible = "Yes"
 AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
 
+#LegendCommand(1)
+
 WriteGraphCommand()
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot2')
@@ -236,6 +248,8 @@ LineWidth = 3
 Color = "FF0000" #Red
 Visible = "Yes"
 AddLineCommand(name, ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
+
+#LegendCommand(1)
 
 WriteGraphCommand()
 

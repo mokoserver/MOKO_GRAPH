@@ -89,6 +89,13 @@ def ClearGraphCommand():
     #MOKO.Report('Graph', 'set', 'table', 'Clear Graph command has done')
     #time.sleep(4)
 
+def LegendCommand(index):
+    #Сделать скриншот и сохранить в папку
+    MOKO.Plugin('Graph', 'set', "Legend")
+    #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
+    #MOKO.Report('Graph', 'set', 'table', f'LegendCommand has done')
+    #time.sleep(4)
+
 def MaxValueCommand(numLine):
     numLine = numLine #delete this
     #Найти максимальное значение выбранной линии и установить курсор на это место

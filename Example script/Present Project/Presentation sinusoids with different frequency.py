@@ -99,6 +99,13 @@ def MaxValueCommand(numLine):
     #MOKO.Report('Graph', 'set', 'table', f'Max = {numLine}')
     #time.sleep(1)
 
+def LegendCommand(index):
+    #Сделать скриншот и сохранить в папку
+    MOKO.Plugin('Graph', 'set', "Legend")
+    #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
+    #MOKO.Report('Graph', 'set', 'table', f'LegendCommand has done')
+    #time.sleep(4)
+
 def SinusGenerator(x,Ampl,freq,phase):
 
     sine = Ampl * np.sin(2 * np.pi * freq * x + phase)
