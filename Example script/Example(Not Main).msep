@@ -1,0 +1,12 @@
+{
+"project_name":"Example(Not Main)",
+"project_scripts":[
+{"script":"Example.py","necessary":"false"}
+],
+"project_libraries":[
+{"script":"MOKO.py"}
+],
+"project_templates":[
+{"script":"MokoWordGraph.docx"}
+]
+}
