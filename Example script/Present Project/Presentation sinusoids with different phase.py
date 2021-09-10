@@ -123,7 +123,7 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
                                               f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)}')
         i = i + 1
 
-#MOKO.Plugin('Graph', 'init', '')
+MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
