@@ -3,11 +3,19 @@ import time
 
 MOKO.Report('Graph', 'info', 'table', 'Commands#150')
 
+def WriteGraphCommand():
+    #Отобразить данные на графике
+    MOKO.Plugin('Graph', 'set', "Write Graph")
+    #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Write Graph command has done')
+    MOKO.Report('Graph', 'set', 'table', 'Write Graph command has done')
+    #time.sleep(4)
+
 def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,index):
-    #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
+    #Добавление линии
     MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
     #MOKO.Report(f'AddLine_{index}', 'set', 'string', f'Add Line №{index}')
     MOKO.Report('Graph', 'set', 'table', f'Add Line №{index}')
+    WriteGraphCommand()
     time.sleep(4)
 
 def ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible):
@@ -74,7 +82,7 @@ def ScreenshotCommand(index):
     MOKO.Report('Graph', 'set', 'table', f'Screenshot #{index} has done')
     time.sleep(4)
 
-def LegendCommand(index):
+def LegendCommand():
     #Сделать скриншот и сохранить в папку
     MOKO.Plugin('Graph', 'set', "Legend")
     #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
@@ -86,23 +94,11 @@ def ClearGraphCommand():
     MOKO.Plugin('Graph', 'set', "Clear Graph")
     #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Clear Graph command has done')
     MOKO.Report('Graph', 'set', 'table', 'Clear Graph command has done')
-    time.sleep(4)
-
-def MaxValueCommand(numLine):
-    numLine = numLine #delete this
-    #Найти максимальное значение выбранной линии и установить курсор на это место
-    #MOKO.Plugin('Graph', 'set', f"Max={numLine}")
-    #MOKO.Report(f'Autoscale_{index}', 'set', 'string', f'Autoscale = {mode}')
-    #MOKO.Report('Graph', 'set', 'table', f'Max = {numLine}')
-    #time.sleep(1)
+    #time.sleep(4)
 
 MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
-
-#Value_OyOx = [0,5,0,8]
-#Name_OyOx = ["Amplitude", "Frequency"]
-#AddGraphSettCommand(Value_OyOx, Name_OyOx)
 
 AutoscaleCommand("No")
 
@@ -122,6 +118,8 @@ Color = '00FF00' #Green
 Visible = 'Yes'
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
 
+LegendCommand()
+
 name = 'Plot 2'
 ArrOx = [0,1,2,3,4]
 ArrOy = [1,2,3,4,5]
@@ -139,6 +137,8 @@ LineWidth = 3
 Color = "FF0000" #Red
 Visible = 'Yes'
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,3)
+
+LegendCommand()
 
 AutoscaleCommand("Only Ox")
 
@@ -158,11 +158,11 @@ Color = "FF00FF" #Magenta
 Visible = 'Yes'
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,5)
 
-AutoscaleCommand("No")
+LegendCommand()
 
 Value_OyOx = [-1,10,0,6]
 Name_OyOx = ["Amplitude", "Frequency"]
-Autoscale = "Yes"
+Autoscale = "No"
 AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
 
 name = 'Plot 1'
@@ -195,11 +195,9 @@ MOKO.Report("Screenshot_1", 'set', 'picture', screen)
 numLine = [0,1,2,3]
 HideLineCommand(numLine)
 
-AutoscaleCommand("No")
-
 Value_OyOx = [0,7,0,16]
 Name_OyOx = ["Amplitude", "Frequency"]
-Autoscale = ""
+Autoscale = "No"
 AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
 
 ### M ###
@@ -270,13 +268,7 @@ Color = '00FFFF' #Blue
 Visible = 'Yes'
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
-numLine = 0
-MaxValueCommand(numLine)
-
-#max = MOKO.Plugin('Graph', 'get', f"Max={0}", 'string')
-#MOKO.Report('Graph', 'set', 'table', f'Max = {max}')
-
-#ClearGraphCommand()
+ClearGraphCommand()
 
 MOKO.Program('control', 'set', 'save word report')
 

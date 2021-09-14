@@ -134,15 +134,13 @@ HideLineCommand("All")
 numLine = [0]
 LineWidth = 5
 
-ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible)
-
 ShowLineCommand("All")
 
-#numLine = [0,2]
+numLine = [0,2]
 
 #ShowLineCommand(numLine)
 
-#ShowLineOnlyCommand(numLine)
+ShowLineOnlyCommand(numLine)
 
 #DeleteLineCommand("All")
 
