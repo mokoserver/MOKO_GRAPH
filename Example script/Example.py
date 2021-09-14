@@ -105,8 +105,6 @@ time.sleep(4)
 #Name_OyOx = ["Amplitude", "Frequency"]
 #AddGraphSettCommand(Value_OyOx, Name_OyOx)
 
-AutoscaleCommand("No")
-
 name = 'Plot 1'
 ArrOx = [0,1,2,3,4]
 ArrOy = [0,1,2,3,4]
@@ -125,160 +123,29 @@ AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
 
 name = 'Plot 2'
 ArrOx = [0,1,2,3,4]
-ArrOy = [1,2,3,4,5]
-LineWidth = 2
-Color = '00FF00' #Green
-Visible = 'No'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
-
-AutoscaleCommand("Only Oy")
-
-name = 'Plot 3'
-ArrOx = [0,1,2,3,4]
 ArrOy = [2,3,4,5,6]
 LineWidth = 3
-Color = "FF0000" #Red
-Visible = 'Yes'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,3)
-
-AutoscaleCommand("Only Ox")
-
-name = 'Plot 4'
-ArrOx = [0,1,2,3,5]
-ArrOy = [3,4,5,6,8]
-LineWidth = 4
-Color = "FFFF00" #Yellow
-Visible = 'Yes'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,4)
-
-name = 'Plot 5'
-ArrOx = [0,1,2,3,4]
-ArrOy = [4,5,6,7,8]
-LineWidth = 5
-Color = "FF00FF" #Magenta
-Visible = 'Yes'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,5)
-
-AutoscaleCommand("No")
-
-Value_OyOx = [-1,10,0,6]
-Name_OyOx = ["Amplitude", "Frequency"]
-Autoscale = "Yes"
-AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
-
-name = 'Plot 1'
-numLine = 0
-ArrOx = [0,1,2,3,4]
-ArrOy = [-1,0,1,2,3]
-LineWidth = 5
 Color = '00FF00' #Green
 Visible = 'Yes'
-ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color, Visible)
+AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
 
-numLine = 1
-DeleteLineCommand(numLine)
+HideLineCommand("All")
 
-name = 'Plot 7'
-numLine = 1
-ArrOx = [0,1,2,3,4]
-ArrOy = [1,2,3,4,5]
-LineWidth = 1
-Color = '00FF00' #Green
-Visible = 'Yes'
+numLine = [0]
+LineWidth = 5
+
 ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
-AutoscaleCommand("Yes")
+ShowLineCommand("All")
 
-ScreenshotCommand(1)
-screen = MOKO.Plugin('Graph', 'get', 'InstantScreenshot', 'string')
-MOKO.Report("Screenshot_1", 'set', 'picture', screen)
+#numLine = [0,2]
 
-numLine = [0,1,2,3]
-HideLineCommand(numLine)
+#ShowLineCommand(numLine)
 
-AutoscaleCommand("No")
+#ShowLineOnlyCommand(numLine)
 
-Value_OyOx = [0,7,0,16]
-Name_OyOx = ["Amplitude", "Frequency"]
-Autoscale = ""
-AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
+#DeleteLineCommand("All")
 
-### M ###
-name = 'Plot 12'
-ArrOx = [2,3,4,5,6]
-ArrOy = [4,6,5,6,4]
-LineWidth = 3
-Color = '00FFFF'  #Blue
-Visible = 'Yes'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,6)
-
-### O ###
-
-name = 'Plot 8'
-ArrOx = [7,7,9,9,7]
-ArrOy = [4,6,6,4,4]
-LineWidth = 3
-Color = '00FF00' #Green
-Visible = 'No'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,7)
-
-### K ###
-
-name = 'Plot 9'
-ArrOx = [10,10,10,11,10,11]
-ArrOy = [4,6,5,6,5,4]
-LineWidth = 3
-Color = '00FFFF' #Blue
-Visible = 'Yes'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,8)
-
-### O ###
-
-name = 'Plot 10'
-ArrOx = [12,12,14,14,12]
-ArrOy = [4,6,6,4,4]
-LineWidth = 3
-Color = '00FF00' #Green
-Visible = 'Yes'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,9)
-
-ShowLineCommand('All')
-
-numLine = [4,5,6,7]
-ShowLineOnlyCommand(numLine)
-
-numLine = [0,1,2]
-ShowLineCommand(numLine)
-
-ShowLineCommand('All')
-
-HideLineCommand('All')
-
-ShowLineCommand('All')
-
-numLine = [0,1,2,3]
-DeleteLineCommand(numLine)
-
-DeleteLineCommand('All')
-
-AutoscaleCommand("Yes")
-
-name = 'Plot 11'
-ArrOx = [0.1,1.2,2.3,3.4,4.5]
-ArrOy = [0.1,1.2,2.3,3.4,4.5]
-LineWidth = 1
-Color = '00FFFF' #Blue
-Visible = 'Yes'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-numLine = 0
-MaxValueCommand(numLine)
-
-#max = MOKO.Plugin('Graph', 'get', f"Max={0}", 'string')
-#MOKO.Report('Graph', 'set', 'table', f'Max = {max}')
-
-#ClearGraphCommand()
-
-MOKO.Program('control', 'set', 'save word report')
+#MOKO.Program('control', 'set', 'save word report')
 
 MOKO.EndScript()
