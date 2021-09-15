@@ -174,8 +174,8 @@ Color = '00FF00' #Green
 Visible = 'Yes'
 ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color, Visible)
 
-numLine = 1
-DeleteLineCommand(numLine)
+#numLine = 1
+#DeleteLineCommand(numLine)
 
 name = 'Plot 7'
 numLine = 1
