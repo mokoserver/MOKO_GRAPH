@@ -110,7 +110,7 @@ Color = '00FFFF' #Blue
 Visible = 'Yes'
 AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
-name = 'Plot 1'
+name = 'Plot 10'
 ArrOx = [0,1,2,3,4]
 ArrOy = [1,2,3,4,5]
 LineWidth = 2
@@ -119,14 +119,6 @@ Visible = 'Yes'
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
 
 LegendCommand()
-
-name = 'Plot 2'
-ArrOx = [0,1,2,3,4]
-ArrOy = [1,2,3,4,5]
-LineWidth = 2
-Color = '00FF00' #Green
-Visible = 'No'
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
 
 AutoscaleCommand("Only Oy")
 

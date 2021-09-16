@@ -129,18 +129,28 @@ Color = '00FF00' #Green
 Visible = 'Yes'
 AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
 
-HideLineCommand("All")
 
-numLine = [0]
+name = 'Plot 10'
+numLine = 1
+ArrOx = [0,1,2,3,4]
+ArrOy = [-1,0,1,2,3]
 LineWidth = 5
+Color = '00FF00' #Green
+Visible = 'Yes'
+ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
-ShowLineCommand("All")
+#HideLineCommand("All")
 
-numLine = [0,2]
+#numLine = [0]
+#LineWidth = 5
+
+#ShowLineCommand("All")
+
+#numLine = [0,2]
 
 #ShowLineCommand(numLine)
 
-ShowLineOnlyCommand(numLine)
+#ShowLineOnlyCommand(numLine)
 
 #DeleteLineCommand("All")
 
