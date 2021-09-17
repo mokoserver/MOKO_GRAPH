@@ -8,7 +8,7 @@ def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,index):
     MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
     #MOKO.Report(f'AddLine_{index}', 'set', 'string', f'Add Line №{index}')
     MOKO.Report('Graph', 'set', 'table', f'Add Line №{index}')
-    time.sleep(4)
+    #time.sleep(4)
 
 def ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible):
     #Изменить параметры уже добавленной линии
@@ -101,10 +101,6 @@ MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
-#Value_OyOx = [0,5,0,8]
-#Name_OyOx = ["Amplitude", "Frequency"]
-#AddGraphSettCommand(Value_OyOx, Name_OyOx)
-
 name = 'Plot 1'
 ArrOx = [0,1,2,3,4]
 ArrOy = [0,1,2,3,4]
@@ -131,13 +127,23 @@ AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,2)
 
 
 name = 'Plot 10'
-numLine = 1
+numLine = 0
 ArrOx = [0,1,2,3,4]
-ArrOy = [-1,0,1,2,3]
+ArrOy = [6,0,1,2,3]
 LineWidth = 5
 Color = '00FF00' #Green
 Visible = 'Yes'
 ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible)
+
+name = 'Plot 10'
+numLine = 1
+ArrOx = [0,1,2,3,4]
+ArrOy = [-1,0,1,2,3]
+LineWidth = 1
+Color = '0' #Green
+Visible = 'False'
+ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible)
+
 
 #HideLineCommand("All")
 

@@ -110,7 +110,7 @@ Color = '00FFFF' #Blue
 Visible = 'Yes'
 AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
-name = 'Plot 10'
+name = 'Plot 1'
 ArrOx = [0,1,2,3,4]
 ArrOy = [1,2,3,4,5]
 LineWidth = 2
@@ -172,7 +172,7 @@ ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color, Visible)
 name = 'Plot 7'
 numLine = 1
 ArrOx = [0,1,2,3,4]
-ArrOy = [1,2,3,4,5]
+ArrOy = [6,2,3,4,5]
 LineWidth = 1
 Color = '00FF00' #Green
 Visible = 'Yes'
