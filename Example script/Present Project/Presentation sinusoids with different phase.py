@@ -259,7 +259,7 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 
 Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2)
 
-screen = MOKO.Plugin('Graph', 'get', 'InstantScreenshot', 'string')
+screen = MOKO.Plugin('Graph', 'get', 'Screenshot', 'string')
 MOKO.Report("Screenshot_1", 'set', 'picture', screen)
 
 #MOKO.Program('control', 'set', 'save word report')
