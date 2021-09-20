@@ -33,6 +33,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 Source: "App\*"; DestDir: "{app}\" ;  Flags: ignoreversion  uninsremovereadonly
+Source: "Example script\*"; DestDir: "{app}\Example scripts" ;  Flags: ignoreversion  uninsremovereadonly
+Source: "Example script\Present Project\*"; DestDir: "{app}\Example scripts\Present Project" ;  Flags: ignoreversion  uninsremovereadonly
 
 [Icons]
 Name: "{commondesktop}\{#MOKOGraphExe}"; Filename: "{app}\{#MOKOGraphExe}.exe";
