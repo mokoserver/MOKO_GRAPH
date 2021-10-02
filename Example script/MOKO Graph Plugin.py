@@ -87,14 +87,14 @@ def LegendCommand():
     MOKO.Plugin('Graph', 'set', "Legend")
     #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
     #MOKO.Report('Graph', 'set', 'table', f'LegendCommand has done')
-    #time.sleep(4)
+    time.sleep(4)
 
 def ClearGraphCommand():
     #Очистить график
     MOKO.Plugin('Graph', 'set', "Clear Graph")
     #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Clear Graph command has done')
     MOKO.Report('Graph', 'set', 'table', 'Clear Graph command has done')
-    #time.sleep(4)
+    time.sleep(4)
 
 MOKO.Plugin('Graph', 'init', '')
 
