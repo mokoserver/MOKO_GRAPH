@@ -81,7 +81,7 @@ def ShowLineCommand(numLine):
     #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
     MOKO.Plugin('Graph', 'set', f"Show Line={numLine}")
     #MOKO.Report('Graph', 'set', 'table', f'Show Line №{numLine}')
-    #time.sleep(4)
+    time.sleep(4)
 
 def ShowLineOnlyCommand(numLine):
     #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
@@ -113,7 +113,7 @@ def ScreenshotCommand(index):
     MOKO.Plugin('Graph', 'set', "Screenshot")
     #MOKO.Report(f'Screenshot_{index}', 'set', 'string', f'Screenshot #{index} has done')
     #MOKO.Report('Graph', 'set', 'table', f'Screenshot #{index} has done')
-    #time.sleep(4)
+    time.sleep(4)
 
 def LegendCommand(index):
     #Сделать скриншот и сохранить в папку
@@ -159,202 +159,10 @@ MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
-ClearGraphCommand()
+ShowLineCommand(0);
 
-#High Mask
-Value_OyOx = [-1,1,0,N-1]
-Name_OyOx = ["Amplitude", "Time"]
-Autoscale = "OnlyOy"
-AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
-
-#Region Status
-#description: Frequency;Phase;Width;Color;Visible
-
-#First Plot
-name = "Plot 1"  #hesh Plot 1: 40;90;3;Lime;Yes
-#MOKO.Report('Name1', 'set', 'string', f'{name}')
-#MOKO.Report('Name4', 'set', 'string', f'{name}')
-#MOKO.Report('Name7', 'set', 'string', f'{name}')
-#MOKO.Report('Name10', 'set', 'string', f'{name}')
-sampling_freq = N
-start = 0
-stop = N
-x = np.arange(start,stop,stop/sampling_freq)
-freq = 1/N
-Ampl = 1
-ArrOy = SinusGenerator(x,Ampl,freq,0)
-sinus = SinusGenerator(x,Ampl,freq,0)
-ArrOx = list(x)
-LineWidth = 1
-Color = "00FF00" #Lime
-Visible = "Yes"
-#AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-WriteGraphCommand()
-
-name = "Plot 2"  #hesh Plot 1: 40;90;3;Lime;Yes
-#MOKO.Report('Name1', 'set', 'string', f'{name}')
-#MOKO.Report('Name4', 'set', 'string', f'{name}')
-#MOKO.Report('Name7', 'set', 'string', f'{name}')
-#MOKO.Report('Name10', 'set', 'string', f'{name}')
-sampling_freq = N
-start = 0
-stop = N
-x = np.arange(start,stop,stop/sampling_freq)
-freq = 1/N
-Ampl = 1
-ArrOy = SinusGenerator(x,Ampl,freq,90)
-cosinus = SinusGenerator(x,Ampl,freq,90)
-ArrOx = list(x)
-LineWidth = 1
-Color = "00FF00" #Lime
-Visible = "Yes"
-#AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-WriteGraphCommand()
-
-name = "Plot 2"  #hesh Plot 1: 40;90;3;Lime;Yes
-#MOKO.Report('Name1', 'set', 'string', f'{name}')
-#MOKO.Report('Name4', 'set', 'string', f'{name}')
-#MOKO.Report('Name7', 'set', 'string', f'{name}')
-#MOKO.Report('Name10', 'set', 'string', f'{name}')
-sampling_freq = N
-start = 0
-stop = N
-x = np.arange(start,stop,stop/sampling_freq)
-freq = 1*Gar/N
-Ampl = 1
-ArrOy = SinusGenerator(x,Ampl,freq,0)
-real = SinusGenerator(x,Ampl,freq,0)
-ArrOx = list(x)
-LineWidth = 1
-Color = "00FF00" #Lime
-Visible = "Yes"
-#AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-imag = list(range(N))
-
-for i in range(N):
-    imag[i] = 0
-#    real[i] = 0
-
-#real[0] = 1
-IE = 1; N2 = round(N/2)
-j1 = 0
-#print(IE)
-
-#print(len(sinus))
-#real = sinus
-
-while IE < N:
-  #  break
-    k = 0
-    j = 0
-    while j < N2:
-        i = j
-        while i < N:
-#            print(N2,IE,j,i,i+N2,k,"\n")
-            real1 = real[i]
-            real2 = real[i+N2]
-            imag1 = imag[i]
-            real[i] = real[i]/2 + real[i+N2]/2
-            imag[i] = imag[i]/2+imag[i+N2]/2
-            real[i+N2] = (real1/2-real[i+N2]/2)*cosinus[k] + (imag1/2-imag[i+N2]/2)*sinus[k]
-            imag[i+N2] = (imag1/2-imag[i+N2]/2)*cosinus[k] - (real1/2-real2/2)*sinus[k]
-            i = i + 2*N2
-
-        k = k + IE; j = j + 1
-    if j1 == 0:
-        break
-    j1 = j1+1
-    IE = 2*IE; N2 = round(N2/2)
-
-#for i in range(round(N/2)):
-
-#real1 = real[2]
-#real2 = real[1]
-#real3 = real[3]
-#real4 = real[4];real5 = real[6];real6 = real[5];real7 = real[7]
-
-#real[1] = real1
-#real[2] = real2
-#real[3] = real3
-#real[4] = real4
-#real[5] = real5
-#real[6] = real6
-#real[7] = real7
-
-#print(real)
-
-
-
-#    temp = real[i]
-#    real[i] = real[i+round(N/2)-1]
-#    real[i+round(N/2)-1] = temp
-#    i = i + 2
-
-#while j < N:#round(N/2):
-#    temp = real[i+1]
-#    real[i+1] = real[i+round(N/2)]
-#    real.insert(i, real[j+round(N/2)])
-    #print(len(real))
- #   j = j + 2
- #   i = i + 2
-
-
-#real2 = real[1]
-#real4 = real[2]
-#real6 = real[3]
-#real1 = real[4];real3 = real[5];real5 = real[6];real7 = real[7]
-
-#real[1] = real1
-#real[2] = real2
-#real[3] = real3
-#real[4] = real4
-#real[5] = real5
-#real[6] = real6
-#real[7] = real7
-
-name = "Plot 2"  #hesh Plot 1: 40;90;3;Lime;Yes
-sampling_freq = N
-start = 0
-stop = N
-x = np.arange(start,stop,stop/sampling_freq)
-ArrOy = real
-ArrOx = list(x)
-LineWidth = 1
-Color = "00FF00" #Lime
-Visible = "Yes"
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-WriteGraphCommand()
+ScreenshotCommand(1)
+screen = MOKO.Plugin('Graph', 'get', 'InstantScreenshot', 'string')
+#MOKO.Report("Screenshot_1", 'set', 'picture', screen)
 
 MOKO.EndScript()
-
-
-#0      0       0       0       0           #0          0       0       0
-#8      4       2       2       2           #2          16      4       2
-#4      8       6       4       4           #4          8       8       4
-#12     12      10      8       6           #6          24      12      6
-#2      2       4       6       8           #8          4       16      8
-#10     6       8       10      10          #10         20      20      10
-#6      10      12      12      12          #12         12      24      12
-#14     14      14      14      14          #14         28      28
-#                                                       2       2       16
-#                                                       18      6       18
-#                                                       10      10      20
-#                                                       26      14
-#                                                       6       18      24
-#                                                       22      22
-#                                                       14      26
-#                                                       30      30      30
-
-# 0000  #0000   #0
-# 0001  #1000   #8
-# 0010  #0100   #4
-# 0011  #1100   #12
-
-#    100  = 4
-#    100 + 010 - 100 = 010
-
-
