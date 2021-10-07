@@ -22,16 +22,8 @@ for i in range(N):
             zero = zero + "0"
             j = j + 1
 
- #   print(zero)
     a = zero + a
-#    print("a = ", a)
-#    break
-    if i == 127:
-        print(a)
     a = "			.word 		" + a[len(a)-1::-1] + "b"
-
-    if i == 127:
-        print(a)
     f.write(a + '\n')
 
 f.close()
@@ -144,25 +136,108 @@ def SinusGenerator(x,Ampl,freq,phase):
     sine = list(sine)
     return sine
 
-def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
-    i = 0
-    number = 0
-    while i < len(ArrOx):
-        if i % 25 == 0 and i > 0:
-            number = number + 1
-        MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i+1};{round(ArrOx[i],2)};{round(ArrOy[i],2)};'
-                                              f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'
-                                              f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)}')
-        i = i + 1
+def SinusGenerator(x,Ampl,freq,phase):
+
+    sine = Ampl * np.sin(2 * np.pi * freq * x + phase)
+    sine = list(sine)
+    return sine
+
+def CosinusGenerator(x,Ampl,freq,phase):
+
+    cos = Ampl * np.cos(2 * np.pi * freq * x + phase)
+    cos = list(cos)
+    return cos
 
 MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
-ShowLineCommand(0);
+N = 256
 
-ScreenshotCommand(1)
-screen = MOKO.Plugin('Graph', 'get', 'InstantScreenshot', 'string')
-#MOKO.Report("Screenshot_1", 'set', 'picture', screen)
+Value_OyOx = [-400,400,0,N-1]
+Name_OyOx = ["Amplitude", "Time"]
+Autoscale = "Only Oy"
+AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
+
+sampling_freq = N
+start = 0
+stop = 1
+x = np.arange(start,stop,stop/sampling_freq)
+freq = 1
+Ampl = 1
+sinus = SinusGenerator(x,Ampl,freq,0)
+
+x = np.arange(start,stop,stop/sampling_freq)
+freq = 1
+cosinus = CosinusGenerator(x,Ampl,freq,0)
+
+x = np.arange(start,stop,stop/sampling_freq)
+freq = 11
+signal = SinusGenerator(x,Ampl,freq,0)
+signal1 = SinusGenerator(x,Ampl,freq,0)
+
+f = open('signalGar11_256.dat', 'w')
+f.write("1651 1 c7 1 1" + '\n')
+for i in range(N):
+    a = str(round(signal1[i]*32767))
+    f.write(a + '\n')
+f.close()
+
+f = open('sinus256_2.txt', 'w')
+for i in range(N):
+    a = "			.word " + str(round(sinus[i]*32767))
+    f.write(a + '\n')
+f.close()
+
+f = open('cosinus256_2.txt', 'w')
+for i in range(N):
+    a = "			.word " + str(round(cosinus[i]*32767))
+    f.write(a + '\n')
+f.close()
+
+ie = 1
+N2 = round(N/2)
+imag = list(range(N))
+for i in range(N):
+    imag[i] = 0
+
+while ie < N:
+    j = 0
+    k = 0
+    while j < N2:
+        i = j
+        while i < N:
+            real_PR = signal[i]/2 + signal[i+N2]/2
+            imag_PR = imag[i]/2+imag[i+N2]/2
+            real_QR = (signal[i]-signal[i+N2])/2*cosinus[k] + (imag[i]-imag[i+N2])/2*sinus[k]
+            imag_QR = -(signal[i] - signal[i+N2])/2 * sinus[k] + (imag[i]-imag[i+N2])/2 * cosinus[k]
+
+            signal[i] = real_PR
+            signal[i+N2] = real_QR
+            imag[i] = imag_PR
+            imag[i+N2] = imag_QR
+
+            i = i + 2*N2
+
+        k = k + ie
+        j = j + 1
+
+    break
+    ie = 2 * ie
+    N2 = round(N2/2)
+
+#for i in range(N):
+#    signal[i] = signal[i]*300000000000000
+
+#First Plot
+name = "Plot 1"  #hesh Plot 1: 40;90;3;Lime;Yes
+
+ArrOx = list(x)
+LineWidth = 2
+Color = "00FF00" #Lime
+Visible = "Yes"
+AddLineCommand(name, signal1, ArrOx,LineWidth,Color,Visible,1)
+
+WriteGraphCommand()
 
 MOKO.EndScript()
