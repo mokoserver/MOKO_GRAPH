@@ -115,14 +115,18 @@ def SinusGenerator(x,Ampl,freq,phase):
 def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1):
     i = 0
     number = 8
-    while i < 100:
+    sin_with_diff_freq = ''
+    while i < 100 + 1:
         if i % 25 == 0 and i > 0:
+            MOKO.Report(f'Graph_{number}', 'set', 'table', sin_with_diff_freq)
+            sin_with_diff_freq = ''
             number = number + 1
 
-        MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};'
-                                                       f'{i + 1};{round(ArrOx1[i], 2)};{round(ArrOy1[i], 2)}')
+        if i < 100:
+            sin_with_diff_freq = sin_with_diff_freq + f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};' \
+                                                    + f'{i + 1};{round(ArrOx1[i], 2)};{round(ArrOy1[i], 2)};' \
+                                                    + '\\r'
         i = i + 1
-
 
 #MOKO.Plugin('Graph', 'init', '')
 
@@ -141,11 +145,12 @@ AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
 
 #First Plot
 name = "Plot 7" #hesh Plot7: 4;0;2;Magenta;Yes
+MOKO.Report('Name25;Name27;Name29;Name31', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name25', 'set', 'string', f'{name}')
+#MOKO.Report('Name27', 'set', 'string', f'{name}')
+#MOKO.Report('Name29', 'set', 'string', f'{name}')
+#MOKO.Report('Name31', 'set', 'string', f'{name}')
 sampling_freq = 1000
-MOKO.Report('Name25', 'set', 'string', f'{name}')
-MOKO.Report('Name27', 'set', 'string', f'{name}')
-MOKO.Report('Name29', 'set', 'string', f'{name}')
-MOKO.Report('Name31', 'set', 'string', f'{name}')
 start = 0
 stop = 0.5
 x = np.arange(start,stop,stop/sampling_freq)
@@ -165,10 +170,11 @@ MOKO.Program('tree', 'set', 'select = ' + 'Plot7')
 MOKO.Program('tree', 'set', 'chosen = passed')
 
 name = "Plot 8"     #hesh Plot8:  30;0;2;DarkTurquoise;Yes
-MOKO.Report('Name26', 'set', 'string', f'{name}')
-MOKO.Report('Name28', 'set', 'string', f'{name}')
-MOKO.Report('Name30', 'set', 'string', f'{name}')
-MOKO.Report('Name32', 'set', 'string', f'{name}')
+MOKO.Report('Name26;Name28;Name30;Name32', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name26', 'set', 'string', f'{name}')
+#MOKO.Report('Name28', 'set', 'string', f'{name}')
+#MOKO.Report('Name30', 'set', 'string', f'{name}')
+#MOKO.Report('Name32', 'set', 'string', f'{name}')
 start = 0
 stop = 0.5
 x = np.arange(start,stop,stop/sampling_freq)

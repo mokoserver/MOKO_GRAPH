@@ -860,12 +860,12 @@ def Report(name, mode, kind, data, valuetype='void'):
         print("ERROR IN PYTHON LIBRARY! Return value type is not specified for GET request")
         return None
     if ((mode.lower() != 'get') and (mode.lower() != 'set') and (mode.lower() != 'info')):
-        Stage("ERROR IN PYTHON LIBRARY! Wrong request type! " +  str(mode), 'error')
-        print("ERROR IN PYTHON LIBRARY! Wrong request type! " +  str(mode))
+        Stage("ERROR IN PYTHON LIBRARY! Wrong request type! " + str(mode), 'error')
+        print("ERROR IN PYTHON LIBRARY! Wrong request type! " + str(mode))
         return None
-    if ((kind.lower() != 'table') and (kind.lower() != 'string') and (kind.lower() != 'picture')):
-        Stage("ERROR IN PYTHON LIBRARY! Wrong report kind! " +  str(kind), 'error')
-        print("ERROR IN PYTHON LIBRARY! Wrong report kind! " +  str(kind))
+    if ((kind.lower() != 'table') and (kind.lower() != 'string') and (kind.lower() != 'picture') and (kind.lower() != 'strings')):
+        Stage("ERROR IN PYTHON LIBRARY! Wrong report kind! " + str(kind), 'error')
+        print("ERROR IN PYTHON LIBRARY! Wrong report kind! " + str(kind))
         return None
     URLWrite = _UrlReportWrite
     URLRead = _UrlReportRead

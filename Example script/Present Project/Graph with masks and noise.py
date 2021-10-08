@@ -107,18 +107,36 @@ def MaxValueCommand(numLine):
 def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
     i = 0
     number = 4
-    while i < len(ArrOx1)/10 and i < 100:
+    plot_with_masks_n_noise = ''
+    while i < len(ArrOx1)/10 and i < 101:
         if i % 25 == 0 and i > 0:
+            MOKO.Report(f'Graph_{number}', 'set', 'table', plot_with_masks_n_noise)
+            plot_with_masks_n_noise = ''
             number = number + 1
+
         if i > len(ArrOx) - 1:
-            MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i+1};'';'';'
-                                              f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'
-                                              f'{i+1};'';'';')
+            plot_with_masks_n_noise = plot_with_masks_n_noise + f'{i+1};'';'';' \
+                                      + f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};' \
+                                      + f'{i+1};'';'';' \
+                                      + '\\r'
         else:
-            MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};'
-                                                           f'{i + 1};{round(ArrOx1[i*10], 2)};{round(ArrOy1[i*10], 2)};'
-                                                           f'{i + 1};{round(ArrOx2[i], 2)};{round(ArrOy2[i], 2)}')
+            plot_with_masks_n_noise = plot_with_masks_n_noise + f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};' \
+                                  + f'{i + 1};{round(ArrOx1[i*10], 2)};{round(ArrOy1[i*10], 2)};' \
+                                  + f'{i + 1};{round(ArrOx2[i], 2)};{round(ArrOy2[i], 2)};' \
+                                  + '\\r'
         i = i + 1
+#    while i < len(ArrOx1)/10 and i < 100:
+#        if i % 25 == 0 and i > 0:
+#            number = number + 1
+#        if i > len(ArrOx) - 1:
+#            MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i+1};'';'';'
+#                                              f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'
+#                                              f'{i+1};'';'';')
+#        else:
+#            MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};'
+#                                                           f'{i + 1};{round(ArrOx1[i*10], 2)};{round(ArrOy1[i*10], 2)};'
+#                                                           f'{i + 1};{round(ArrOx2[i], 2)};{round(ArrOy2[i], 2)}')
+#        i = i + 1
 
 
 #MOKO.Plugin('Graph', 'init', '')
@@ -138,10 +156,10 @@ AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
 #description: Width;Color;Visible
 
 name = 'Plot 4' #hesh Plot4:    2;Blue;Yes
-MOKO.Report('Name13', 'set', 'string', f'{name}')
-MOKO.Report('Name16', 'set', 'string', f'{name}')
-MOKO.Report('Name19', 'set', 'string', f'{name}')
-MOKO.Report('Name22', 'set', 'string', f'{name}')
+MOKO.Report('Name13;Name16;Name19;Name22', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name16', 'set', 'string', f'{name}')
+#MOKO.Report('Name19', 'set', 'string', f'{name}')
+#MOKO.Report('Name22', 'set', 'string', f'{name}')
 ArrOx = [2.379,2.383,2.4,2.402,2.422,2.424,2.441,2.445]
 valueOy = -92
 ArrOy = [valueOy,valueOy,valueOy+20,valueOy+40,valueOy+40,valueOy+20,valueOy,valueOy]
@@ -258,10 +276,11 @@ while i < 200:
     i = i + 1
 
 name = 'Plot 5' #hesh Plot5: 1;Red;Yes
-MOKO.Report('Name14', 'set', 'string', f'{name}')
-MOKO.Report('Name17', 'set', 'string', f'{name}')
-MOKO.Report('Name20', 'set', 'string', f'{name}')
-MOKO.Report('Name23', 'set', 'string', f'{name}')
+MOKO.Report('Name14;Name17;Name20;Name23', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name14', 'set', 'string', f'{name}')
+#MOKO.Report('Name17', 'set', 'string', f'{name}')
+#MOKO.Report('Name20', 'set', 'string', f'{name}')
+#MOKO.Report('Name23', 'set', 'string', f'{name}')
 ArrOx1 = array
 ArrOy1 = noise
 LineWidth = 1
@@ -277,10 +296,11 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 #Low Mask
 
 name = 'Plot 6' #hesh Plot6:  2;Lime;Yes
-MOKO.Report('Name15', 'set', 'string', f'{name}')
-MOKO.Report('Name18', 'set', 'string', f'{name}')
-MOKO.Report('Name21', 'set', 'string', f'{name}')
-MOKO.Report('Name24', 'set', 'string', f'{name}')
+MOKO.Report('Name15;Name18;Name21;Name24', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name15', 'set', 'string', f'{name}')
+#MOKO.Report('Name18', 'set', 'string', f'{name}')
+#MOKO.Report('Name21', 'set', 'string', f'{name}')
+#MOKO.Report('Name24', 'set', 'string', f'{name}')
 ArrOx2 = [2.379,2.383,2.4,2.402,2.422,2.424,2.441,2.445]
 valueOy= -150
 ArrOy2 = [valueOy,valueOy,valueOy+20,valueOy+40,valueOy+40,valueOy+20,valueOy,valueOy]

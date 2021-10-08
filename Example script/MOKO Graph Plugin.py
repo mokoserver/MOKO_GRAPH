@@ -181,7 +181,7 @@ ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible)
 AutoscaleCommand("Yes")
 
 ScreenshotCommand(1)
-screen = MOKO.Plugin('Graph', 'get', 'InstantScreenshot', 'string')
+screen = MOKO.Plugin('Graph', 'get', 'Screenshot', 'string')
 MOKO.Report("Screenshot_1", 'set', 'picture', screen)
 
 numLine = [0,1,2,3]

@@ -115,13 +115,29 @@ def SinusGenerator(x,Ampl,freq,phase):
 def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
     i = 0
     number = 0
-    while i < len(ArrOx):
+    sin_with_diff_phase = ''
+    while i < len(ArrOx)+1:
         if i % 25 == 0 and i > 0:
+            MOKO.Report(f'Graph_{number}', 'set', 'table', sin_with_diff_phase)
+            sin_with_diff_phase = ''
             number = number + 1
-        MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i+1};{round(ArrOx[i],2)};{round(ArrOy[i],2)};'
-                                              f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'
-                                              f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)}')
+
+        if i < len(ArrOx):
+            sin_with_diff_phase = sin_with_diff_phase + f'{i+1};{round(ArrOx[i],2)};{round(ArrOy[i],2)};'\
+                                                      + f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'\
+                                                      + f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)};' \
+                                                      + '\\r'
+        # MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};'
+        #                                               f'{i + 1};{round(ArrOx1[i], 2)};{round(ArrOy1[i], 2)}')
         i = i + 1
+
+#    while i < len(ArrOx):
+#        if i % 25 == 0 and i > 0:
+#            number = number + 1
+#        MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i+1};{round(ArrOx[i],2)};{round(ArrOy[i],2)};'
+#                                              f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'
+#                                              f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)}')
+#        i = i + 1
 
 MOKO.Plugin('Graph', 'init', '')
 
@@ -174,10 +190,11 @@ WriteGraphCommand()
 
 #First Plot
 name = "Plot 1"  #hesh Plot 1: 40;90;3;Lime;Yes
-MOKO.Report('Name1', 'set', 'string', f'{name}')
-MOKO.Report('Name4', 'set', 'string', f'{name}')
-MOKO.Report('Name7', 'set', 'string', f'{name}')
-MOKO.Report('Name10', 'set', 'string', f'{name}')
+MOKO.Report('Name1;Name4;Name7;Name10', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name1', 'set', 'string', f'{name}')
+#MOKO.Report('Name4', 'set', 'string', f'{name}')
+#MOKO.Report('Name7', 'set', 'string', f'{name}')
+#MOKO.Report('Name10', 'set', 'string', f'{name}')
 sampling_freq = 100
 start = 0
 stop = 0.05
@@ -203,10 +220,11 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 
 #Second Plot
 name = "Plot 2" #hesh Plot2: 40;0;3;Aqua;Yes
-MOKO.Report('Name2', 'set', 'string', f'{name}')
-MOKO.Report('Name5', 'set', 'string', f'{name}')
-MOKO.Report('Name8', 'set', 'string', f'{name}')
-MOKO.Report('Name11', 'set', 'string', f'{name}')
+MOKO.Report('Name2;Name5;Name8;Name11', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name2', 'set', 'string', f'{name}')
+#MOKO.Report('Name5', 'set', 'string', f'{name}')
+#MOKO.Report('Name8', 'set', 'string', f'{name}')
+#MOKO.Report('Name11', 'set', 'string', f'{name}')
 sampling_freq = 100
 start = 0
 stop = 0.05
@@ -232,10 +250,11 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 
 #Third Plot
 name = "Plot 3"  #hesh Plot3: 40;-90;3;Red;Yes
-MOKO.Report('Name3', 'set', 'string', f'{name}')
-MOKO.Report('Name6', 'set', 'string', f'{name}')
-MOKO.Report('Name9', 'set', 'string', f'{name}')
-MOKO.Report('Name12', 'set', 'string', f'{name}')
+MOKO.Report('Name3;Name6;Name9;Name12', 'set', 'strings', f'{name};{name};{name};{name}')
+#MOKO.Report('Name3', 'set', 'string', f'{name}')
+#MOKO.Report('Name6', 'set', 'string', f'{name}')
+#MOKO.Report('Name9', 'set', 'string', f'{name}')
+#MOKO.Report('Name12', 'set', 'string', f'{name}')
 sampling_freq = 100
 start = 0
 stop = 0.05
