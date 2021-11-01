@@ -2,8 +2,6 @@ import MOKO
 import MGPH
 import random
 
-MOKO.Report('Graph', 'info', 'table', 'Commands#150')
-
 def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
     i = 0
     number = 4
@@ -26,14 +24,14 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
                                   + '\\r'
         i = i + 1
 
-MGPH.ClearGraphCommand(1)
+MGPH.ClearGraphCommand()
 
 #High Mask
 
 Value_OyOx = [-160,-50,2.375,2.445]
 Name_OyOx = ["Power Spectral Density (dBm/Hz)", "Frequency"]
 Autoscale = "No"
-MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale,1)
+MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
 
 #Region Status
 #description: Width;Color;Visible
@@ -46,9 +44,9 @@ ArrOy = [valueOy,valueOy,valueOy+20,valueOy+40,valueOy+40,valueOy+20,valueOy,val
 LineWidth = 2
 Color = '00FFFF' #Blue
 Visible = 'Yes'
-MGPH.AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible)
 
-MGPH.WriteGraphCommand(1)
+MGPH.WriteGraphCommand()
 
 MOKO.Program('tree', 'set', 'select = ' + 'HighMask')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -157,16 +155,12 @@ while i < 200:
 
 name = 'Plot 5' #hesh SignalNoise: 1;Red;Yes
 MOKO.Report('Name14;Name17;Name20;Name23', 'set', 'strings', f'{name};{name};{name};{name}')
-#MOKO.Report('Name14', 'set', 'string', f'{name}')
-#MOKO.Report('Name17', 'set', 'string', f'{name}')
-#MOKO.Report('Name20', 'set', 'string', f'{name}')
-#MOKO.Report('Name23', 'set', 'string', f'{name}')
 ArrOx1 = array
 ArrOy1 = noise
 LineWidth = 1
 Color = 'FF0000' #Red
 Visible = 'Yes'
-MGPH.AddLineCommand(name,ArrOy1, ArrOx1,LineWidth,Color,Visible,2)
+MGPH.AddLineCommand(name,ArrOy1, ArrOx1,LineWidth,Color,Visible)
 
 MOKO.Program('tree', 'set', 'select = ' + 'SignalNoise')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -175,17 +169,13 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 
 name = 'Plot 6' #hesh LowMask:  2;Lime;Yes
 MOKO.Report('Name15;Name18;Name21;Name24', 'set', 'strings', f'{name};{name};{name};{name}')
-#MOKO.Report('Name15', 'set', 'string', f'{name}')
-#MOKO.Report('Name18', 'set', 'string', f'{name}')
-#MOKO.Report('Name21', 'set', 'string', f'{name}')
-#MOKO.Report('Name24', 'set', 'string', f'{name}')
 ArrOx2 = [2.379,2.383,2.4,2.402,2.422,2.424,2.441,2.445]
 valueOy= -150
 ArrOy2 = [valueOy,valueOy,valueOy+20,valueOy+40,valueOy+40,valueOy+20,valueOy,valueOy]
 LineWidth = 2
 Color = '00FF00' #Lime
 Visible = 'Yes'
-MGPH.AddLineCommand(name,ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name,ArrOy2, ArrOx2,LineWidth,Color,Visible)
 
 MOKO.Program('tree', 'set', 'select = ' + 'LowMask')
 MOKO.Program('tree', 'set', 'chosen = passed')

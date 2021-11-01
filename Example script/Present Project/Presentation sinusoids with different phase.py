@@ -32,14 +32,14 @@ MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
-MGPH.ClearGraphCommand(1)
+MGPH.ClearGraphCommand()
 
 #High Mask
 
 Value_OyOx = [-400,400,0,0.04]
 Name_OyOx = ["Amplitude", "Time"]
 Autoscale = "No"
-MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale,1)
+MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
 
 #4th Plot
 name = "Plot 1"
@@ -48,7 +48,7 @@ ArrOx = [0,0.04]
 LineWidth = 3
 Color = "FF00FF" #Magenta
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
 #5th Plot
 name = "Plot 1"
@@ -57,7 +57,7 @@ ArrOx = [0,0.04]
 LineWidth = 3
 Color = "FFFF00" #Yellow
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
 #5th Plot
 name = "Plot 1"
@@ -66,7 +66,7 @@ ArrOx = [0,0.04]
 LineWidth = 3
 Color = "0" #Black
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
 #Region Status
 #description: Frequency;Phase;Width;Color;Visible
@@ -85,7 +85,7 @@ ArrOx = list(x)
 LineWidth = 3
 Color = "00FF00" #Lime
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
 MOKO.Program('tree', 'set', 'select = ' + 'SinusWith Phase90')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -107,7 +107,7 @@ ArrOx1 = list(x)
 LineWidth = 3
 Color = "00FFFF" #Aqua
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible)
 
 MOKO.Program('tree', 'set', 'select = ' + 'SinusWithPhase0')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -129,7 +129,7 @@ ArrOx2 = list(x)
 LineWidth = 3
 Color = "FF0000" #Red
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy2, ArrOx2,LineWidth,Color,Visible)
 
 MOKO.Program('tree', 'set', 'select = ' + 'SinusWithPhase-90')
 MOKO.Program('tree', 'set', 'chosen = passed')

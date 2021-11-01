@@ -25,12 +25,12 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1):
                                                     + '\\r'
         i = i + 1
 
-MGPH.ClearGraphCommand(1)
+MGPH.ClearGraphCommand()
 
 Value_OyOx = [-1.1,1.1,-0.01,1]
 Name_OyOx = ["Amplitude", "Time"]
 Autoscale = "No"
-MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale,1)
+MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
 
 #Region Status
 #description: Frequency;Phase;Width;Color;Visible
@@ -50,7 +50,7 @@ ArrOx = list(x)
 LineWidth = 2
 Color = "FF00FF" #Magenta
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
 MOKO.Program('tree', 'set', 'select = ' + 'SinusWithFreq4')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -71,7 +71,7 @@ ArrOx1 = list(x)
 LineWidth = 2
 Color = "00CED1" #DarkTurquoise
 Visible = "Yes"
-MGPH.AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible)
 
 MOKO.Program('tree', 'set', 'select = ' + 'SinusWithFreq30')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -85,6 +85,6 @@ MOKO.Report("Screenshot_3", 'set', 'picture', screen)
 MOKO.Program('control', 'set', 'save word report')
 
 time.sleep(3)
-MGPH.ClearGraphCommand(1)
+MGPH.ClearGraphCommand()
 
 MOKO.EndScript()
