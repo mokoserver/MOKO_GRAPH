@@ -72,7 +72,7 @@ MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 #description: Frequency;Phase;Width;Color;Visible
 
 #First Plot
-name = "Plot 1"  #hesh Plot 1: 40;90;3;Lime;Yes
+name = "Plot 1"  #hesh SinusWith Phase90: 40;90;3;Lime;Yes
 MOKO.Report('Name1;Name4;Name7;Name10', 'set', 'strings', f'{name};{name};{name};{name}')
 sampling_freq = 100
 start = 0
@@ -87,14 +87,14 @@ Color = "00FF00" #Lime
 Visible = "Yes"
 MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot 1')
+MOKO.Program('tree', 'set', 'select = ' + 'SinusWith Phase90')
 MOKO.Program('tree', 'set', 'chosen = passed')
 # EndRegion Status
 
 # Region Status
 
 #Second Plot
-name = "Plot 2" #hesh Plot2: 40;0;3;Aqua;Yes
+name = "Plot 2" #hesh SinusWithPhase0: 40;0;3;Aqua;Yes
 MOKO.Report('Name2;Name5;Name8;Name11', 'set', 'strings', f'{name};{name};{name};{name}')
 sampling_freq = 100
 start = 0
@@ -109,14 +109,14 @@ Color = "00FFFF" #Aqua
 Visible = "Yes"
 MGPH.AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot2')
+MOKO.Program('tree', 'set', 'select = ' + 'SinusWithPhase0')
 MOKO.Program('tree', 'set', 'chosen = passed')
 # EndRegion Status
 
 # Region Status
 
 #Third Plot
-name = "Plot 3"  #hesh Plot3: 40;-90;3;Red;Yes
+name = "Plot 3"  #hesh SinusWithPhase-90: 40;-90;3;Red;Yes
 MOKO.Report('Name3;Name6;Name9;Name12', 'set', 'strings', f'{name};{name};{name};{name}')
 sampling_freq = 100
 start = 0
@@ -131,7 +131,7 @@ Color = "FF0000" #Red
 Visible = "Yes"
 MGPH.AddLineCommand(name, ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot3')
+MOKO.Program('tree', 'set', 'select = ' + 'SinusWithPhase-90')
 MOKO.Program('tree', 'set', 'chosen = passed')
 #EndRegion Status
 

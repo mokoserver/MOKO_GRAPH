@@ -36,7 +36,7 @@ MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale,1)
 #description: Frequency;Phase;Width;Color;Visible
 
 #First Plot
-name = "Plot 7" #hesh Plot7: 4;0;2;Magenta;Yes
+name = "Plot 7" #hesh SinusWithFreq4: 4;0;2;Magenta;Yes
 MOKO.Report('Name25;Name27;Name29;Name31', 'set', 'strings', f'{name};{name};{name};{name}')
 sampling_freq = 1000
 start = 0
@@ -52,10 +52,10 @@ Color = "FF00FF" #Magenta
 Visible = "Yes"
 MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot7')
+MOKO.Program('tree', 'set', 'select = ' + 'SinusWithFreq4')
 MOKO.Program('tree', 'set', 'chosen = passed')
 
-name = "Plot 8"     #hesh Plot8:  30;0;2;DarkTurquoise;Yes
+name = "Plot 8"     #hesh SinusWithFreq30:  30;0;2;DarkTurquoise;Yes
 MOKO.Report('Name26;Name28;Name30;Name32', 'set', 'strings', f'{name};{name};{name};{name}')
 start = 0
 stop = 0.5
@@ -73,7 +73,7 @@ Color = "00CED1" #DarkTurquoise
 Visible = "Yes"
 MGPH.AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot8')
+MOKO.Program('tree', 'set', 'select = ' + 'SinusWithFreq30')
 MOKO.Program('tree', 'set', 'chosen = passed')
 #EndRegion Status
 

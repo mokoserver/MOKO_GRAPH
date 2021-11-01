@@ -4,8 +4,8 @@ MOKO.Messenger('set','Приветствие','Рады приветствова
                                    'демонстрации приложения MOKO Graph от компании MOKO! Наслаждайтесь!','void', 7)
 
 #Region Status
-#hesh done
-MOKO.Program('tree', 'set', 'select = ' + 'done')
+#hesh Greeting
+MOKO.Program('tree', 'set', 'select = ' + 'Greeting')
 MOKO.Program('tree', 'set', 'chosen = passed')
 #EndRegion Region Status
 

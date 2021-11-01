@@ -38,7 +38,7 @@ MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale,1)
 #Region Status
 #description: Width;Color;Visible
 
-name = 'Plot 4' #hesh Plot4:    2;Blue;Yes
+name = 'Plot 4' #hesh HighMask:    2;Blue;Yes
 MOKO.Report('Name13;Name16;Name19;Name22', 'set', 'strings', f'{name};{name};{name};{name}')
 ArrOx = [2.379,2.383,2.4,2.402,2.422,2.424,2.441,2.445]
 valueOy = -92
@@ -50,7 +50,7 @@ MGPH.AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
 MGPH.WriteGraphCommand(1)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot4')
+MOKO.Program('tree', 'set', 'select = ' + 'HighMask')
 MOKO.Program('tree', 'set', 'chosen = passed')
 
 #Main Graffic
@@ -155,7 +155,7 @@ while i < 200:
     array.append(2.433+(2.445-2.433)/200*i)
     i = i + 1
 
-name = 'Plot 5' #hesh Plot5: 1;Red;Yes
+name = 'Plot 5' #hesh SignalNoise: 1;Red;Yes
 MOKO.Report('Name14;Name17;Name20;Name23', 'set', 'strings', f'{name};{name};{name};{name}')
 #MOKO.Report('Name14', 'set', 'string', f'{name}')
 #MOKO.Report('Name17', 'set', 'string', f'{name}')
@@ -168,12 +168,12 @@ Color = 'FF0000' #Red
 Visible = 'Yes'
 MGPH.AddLineCommand(name,ArrOy1, ArrOx1,LineWidth,Color,Visible,2)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot5')
+MOKO.Program('tree', 'set', 'select = ' + 'SignalNoise')
 MOKO.Program('tree', 'set', 'chosen = passed')
 
 #Low Mask
 
-name = 'Plot 6' #hesh Plot6:  2;Lime;Yes
+name = 'Plot 6' #hesh LowMask:  2;Lime;Yes
 MOKO.Report('Name15;Name18;Name21;Name24', 'set', 'strings', f'{name};{name};{name};{name}')
 #MOKO.Report('Name15', 'set', 'string', f'{name}')
 #MOKO.Report('Name18', 'set', 'string', f'{name}')
@@ -187,7 +187,7 @@ Color = '00FF00' #Lime
 Visible = 'Yes'
 MGPH.AddLineCommand(name,ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
 
-MOKO.Program('tree', 'set', 'select = ' + 'Plot6')
+MOKO.Program('tree', 'set', 'select = ' + 'LowMask')
 MOKO.Program('tree', 'set', 'chosen = passed')
 #EndRegion Status
 
