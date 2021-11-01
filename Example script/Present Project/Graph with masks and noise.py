@@ -1,108 +1,8 @@
 import MOKO
-import time
+import MGPH
 import random
 
 MOKO.Report('Graph', 'info', 'table', 'Commands#150')
-
-def WriteGraphCommand():
-    #Вывести данные на графике
-    MOKO.Plugin('Graph', 'set', "Write Graph")
-    #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Write Graph command has done')
-    #MOKO.Report('Graph', 'set', 'table', 'Write Graph command has done')
-    #time.sleep(4)
-
-def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,index):
-    #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
-    MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
-    #MOKO.Report(f'AddLine_{index}', 'set', 'string', f'Add Line №{index}')
-    #MOKO.Report('Graph', 'set', 'table', f'Add Line №{index}')
-    #time.sleep(4)
-
-def ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible):
-    #Изменить параметры уже добавленной линии
-    MOKO.Plugin('Graph', 'set', f"Change Line={numLine};{name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
-    #MOKO.Report(f'ChangeLine_{index}', 'set', 'string', f'Change Line №{numLine}')
-    MOKO.Report('Graph', 'set', 'table', f'Change Line №{numLine}')
-    #time.sleep(4)
-
-def DeleteLineCommand(numLine):
-    #Команда "All" - удаление всех линий
-    #Можно указывать как одну линию, так и массив с номерами линий для удаления
-    MOKO.Plugin('Graph', 'set', f"Delete Line={numLine}")
-    #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
-    MOKO.Report('Graph', 'set', 'table', f'Delete Line №{numLine}')
-    #time.sleep(4)
-
-def HideLineCommand(numLine):
-    #Команд: "All" - скрыть все линии, которые есть на графике, также
-    #Можно указывать как одну линию, так и массив с номерами линий для скрытия
-    MOKO.Plugin('Graph', 'set', f"Hide Line={numLine}")
-    #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
-    MOKO.Report('Graph', 'set', 'table', f'Hide Line №{numLine}')
-    #time.sleep(4)
-
-def ShowLineCommand(numLine):
-    #Команд: "All" - показать все линии, которые есть на графике, также
-    #Можно указывать как одну линию, так и массив с номерами линий для отображения
-    #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
-    #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
-    MOKO.Plugin('Graph', 'set', f"Show Line={numLine}")
-    MOKO.Report('Graph', 'set', 'table', f'Show Line №{numLine}')
-    #time.sleep(4)
-
-def ShowLineOnlyCommand(numLine):
-    #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
-    #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
-    MOKO.Plugin('Graph', 'set', f"Show Line=Only;{numLine}")
-    MOKO.Report('Graph', 'set', 'table', f'Show Line Only №{numLine}')
-    #time.sleep(4)
-
-def AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale):
-    #Добавление подписей осей + min&max значения осей
-    #Задание Autoscale: "Yes", "No", "Only Ox", "Only Oy"
-    MOKO.Plugin('Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx};{Autoscale}")
-    #MOKO.Report(f'AddGraphSettings_{index}', 'set', 'string', f'Add Graph Settings')
-    #MOKO.Report('Graph', 'set', 'table', 'Add Graph Settings')
-    #time.sleep(4)
-
-def AutoscaleCommand(mode):
-    #Команды: "No" - отключить Autoscale осей
-    #         "Yes" - включить Autoscale осей
-    #         "Only Ox" - включить Autoscale только для оси Ox
-    #         "Only Oy" - включить Autoscale только для оси Оy
-    MOKO.Plugin('Graph', 'set', f"Autoscale={mode}")
-    #MOKO.Report(f'Autoscale_{index}', 'set', 'string', f'Autoscale = {mode}')
-    MOKO.Report('Graph', 'set', 'table', f'Autoscale = {mode}')
-    #time.sleep(4)
-
-def ScreenshotCommand(index):
-    #Сделать скриншот и сохранить в папку
-    MOKO.Plugin('Graph', 'set', "Screenshot")
-    #MOKO.Report(f'Screenshot_{index}', 'set', 'string', f'Screenshot #{index} has done')
-    MOKO.Report('Graph', 'set', 'table', f'Screenshot #{index} has done')
-    #time.sleep(4)
-
-def ClearGraphCommand():
-    #Очистить график
-    MOKO.Plugin('Graph', 'set', "Clear Graph")
-    #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Clear Graph command has done')
-    #MOKO.Report('Graph', 'set', 'table', 'Clear Graph command has done')
-    #time.sleep(4)
-
-def LegendCommand(index):
-    #Сделать скриншот и сохранить в папку
-    MOKO.Plugin('Graph', 'set', "Legend")
-    #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
-    #MOKO.Report('Graph', 'set', 'table', f'LegendCommand has done')
-    #time.sleep(4)
-
-def MaxValueCommand(numLine):
-    numLine = numLine #delete this
-    #Найти максимальное значение выбранной линии и установить курсор на это место
-    #MOKO.Plugin('Graph', 'set', f"Max={numLine}")
-    #MOKO.Report(f'Autoscale_{index}', 'set', 'string', f'Autoscale = {mode}')
-    #MOKO.Report('Graph', 'set', 'table', f'Max = {numLine}')
-    #time.sleep(1)
 
 def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
     i = 0
@@ -125,50 +25,30 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
                                   + f'{i + 1};{round(ArrOx2[i], 2)};{round(ArrOy2[i], 2)};' \
                                   + '\\r'
         i = i + 1
-#    while i < len(ArrOx1)/10 and i < 100:
-#        if i % 25 == 0 and i > 0:
-#            number = number + 1
-#        if i > len(ArrOx) - 1:
-#            MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i+1};'';'';'
-#                                              f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'
-#                                              f'{i+1};'';'';')
-#        else:
-#            MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};'
-#                                                           f'{i + 1};{round(ArrOx1[i*10], 2)};{round(ArrOy1[i*10], 2)};'
-#                                                           f'{i + 1};{round(ArrOx2[i], 2)};{round(ArrOy2[i], 2)}')
-#        i = i + 1
 
-
-#MOKO.Plugin('Graph', 'init', '')
-
-#time.sleep(4)
-
-ClearGraphCommand()
+MGPH.ClearGraphCommand(1)
 
 #High Mask
 
 Value_OyOx = [-160,-50,2.375,2.445]
 Name_OyOx = ["Power Spectral Density (dBm/Hz)", "Frequency"]
 Autoscale = "No"
-AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
+MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale,1)
 
 #Region Status
 #description: Width;Color;Visible
 
 name = 'Plot 4' #hesh Plot4:    2;Blue;Yes
 MOKO.Report('Name13;Name16;Name19;Name22', 'set', 'strings', f'{name};{name};{name};{name}')
-#MOKO.Report('Name16', 'set', 'string', f'{name}')
-#MOKO.Report('Name19', 'set', 'string', f'{name}')
-#MOKO.Report('Name22', 'set', 'string', f'{name}')
 ArrOx = [2.379,2.383,2.4,2.402,2.422,2.424,2.441,2.445]
 valueOy = -92
 ArrOy = [valueOy,valueOy,valueOy+20,valueOy+40,valueOy+40,valueOy+20,valueOy,valueOy]
 LineWidth = 2
 Color = '00FFFF' #Blue
 Visible = 'Yes'
-AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible,1)
+MGPH.AddLineCommand(name,ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
-WriteGraphCommand()
+MGPH.WriteGraphCommand(1)
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot4')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -286,9 +166,7 @@ ArrOy1 = noise
 LineWidth = 1
 Color = 'FF0000' #Red
 Visible = 'Yes'
-AddLineCommand(name,ArrOy1, ArrOx1,LineWidth,Color,Visible,2)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name,ArrOy1, ArrOx1,LineWidth,Color,Visible,2)
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot5')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -307,9 +185,7 @@ ArrOy2 = [valueOy,valueOy,valueOy+20,valueOy+40,valueOy+40,valueOy+20,valueOy,va
 LineWidth = 2
 Color = '00FF00' #Lime
 Visible = 'Yes'
-AddLineCommand(name,ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name,ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot6')
 MOKO.Program('tree', 'set', 'chosen = passed')

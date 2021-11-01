@@ -7,7 +7,8 @@
 {"script":"Presentation sinusoids with different frequency.py","necessary":"false"}
 ],
 "project_libraries":[
-{"script":"MOKO.py"}
+{"script":"MOKO.py"},
+{"script":"MGPH.py"}
 ],
 "project_templates":[
 {"script":"Present Report.docx"}

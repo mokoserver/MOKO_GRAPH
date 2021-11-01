@@ -152,6 +152,8 @@ MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
+ClearGraphCommand()
+
 N = 256
 
 Value_OyOx = [-400,400,0,N-1]
@@ -201,6 +203,9 @@ imag = list(range(N))
 for i in range(N):
     imag[i] = 0
 
+j_1 = 0
+p = 0
+
 while ie < N:
     j = 0
     k = 0
@@ -217,12 +222,22 @@ while ie < N:
             imag[i] = imag_PR
             imag[i+N2] = imag_QR
 
+ #           if i == 159 and j_1 == 6:
+ #               p = 1
+ #               break
+
             i = i + 2*N2
+
+#        if p == 1:
+ #           break
 
         k = k + ie
         j = j + 1
 
-    break
+    j_1 = j_1 + 1
+
+#    if j_1 == 7 or p == 1:
+#        break
     ie = 2 * ie
     N2 = round(N2/2)
 
@@ -236,7 +251,7 @@ ArrOx = list(x)
 LineWidth = 2
 Color = "00FF00" #Lime
 Visible = "Yes"
-AddLineCommand(name, signal1, ArrOx,LineWidth,Color,Visible,1)
+AddLineCommand(name, signal, ArrOx,LineWidth,Color,Visible,1)
 
 WriteGraphCommand()
 

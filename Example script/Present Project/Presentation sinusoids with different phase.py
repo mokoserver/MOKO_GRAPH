@@ -1,110 +1,9 @@
 import MOKO
 import time
 import numpy as np
-import random
+import MGPH
 
 MOKO.Report('Graph', 'info', 'table', '№#50;x#70;y#70;№#50;x#70;y#70;№#50;x#70;y#70')
-
-def WriteGraphCommand():
-    #Вывести данные на графике
-    MOKO.Plugin('Graph', 'set', "Write Graph")
-    #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Write Graph command has done')
-    #MOKO.Report('Graph', 'set', 'table', 'Write Graph command has done')
-    #time.sleep(4)
-
-def AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,index):
-    #Добавление линии, цвет можно передавать, как "Blue" or "Green", или как массив RGB:0,255,0;
-    MOKO.Plugin('Graph', 'set', f"Add Line={name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
-    #MOKO.Report(f'AddLine_{index}', 'set', 'string', f'Add Line №{index}')
-    #MOKO.Report('Graph', 'set', 'table', f'Add Line №{index}')
-    #time.sleep(4)
-
-def ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible):
-    #Изменить параметры уже добавленной линии
-    MOKO.Plugin('Graph', 'set', f"Change Line={numLine};{name};{ArrOy};{ArrOx};{LineWidth};{Color};{Visible}")
-    #MOKO.Report(f'ChangeLine_{index}', 'set', 'string', f'Change Line №{numLine}')
-   # MOKO.Report('Graph', 'set', 'table', f'Change Line №{numLine}')
-    #time.sleep(4)
-
-def DeleteLineCommand(numLine):
-    #Команда "All" - удаление всех линий
-    #Можно указывать как одну линию, так и массив с номерами линий для удаления
-    MOKO.Plugin('Graph', 'set', f"Delete Line={numLine}")
-    #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
-    #MOKO.Report('Graph', 'set', 'table', f'Delete Line №{numLine}')
-    #time.sleep(4)
-
-def HideLineCommand(numLine):
-    #Команд: "All" - скрыть все линии, которые есть на графике, также
-    #Можно указывать как одну линию, так и массив с номерами линий для скрытия
-    MOKO.Plugin('Graph', 'set', f"Hide Line={numLine}")
-    #MOKO.Report(f'DeleteLine_{index}', 'set', 'string', f'Delete Line №{numLine}')
-    #MOKO.Report('Graph', 'set', 'table', f'Hide Line №{numLine}')
-    #time.sleep(4)
-
-def ShowLineCommand(numLine):
-    #Команд: "All" - показать все линии, которые есть на графике, также
-    #Можно указывать как одну линию, так и массив с номерами линий для отображения
-    #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
-    #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
-    MOKO.Plugin('Graph', 'set', f"Show Line={numLine}")
-    #MOKO.Report('Graph', 'set', 'table', f'Show Line №{numLine}')
-    #time.sleep(4)
-
-def ShowLineOnlyCommand(numLine):
-    #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
-    #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
-    MOKO.Plugin('Graph', 'set', f"Show Line=Only;{numLine}")
-    MOKO.Report('Graph', 'set', 'table', f'Show Line Only №{numLine}')
-    #time.sleep(4)
-
-def AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale):
-    #Добавление подписей осей + min&max значения осей
-    #Задание Autoscale: "Yes", "No", "Only Ox", "Only Oy"
-    MOKO.Plugin('Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx};{Autoscale}")
-    #MOKO.Report(f'AddGraphSettings_{index}', 'set', 'string', f'Add Graph Settings')
-    #MOKO.Report('Graph', 'set', 'table', 'Add Graph Settings')
-    #time.sleep(4)
-
-def AutoscaleCommand(mode):
-    #Команды: "No" - отключить Autoscale осей
-    #         "Yes" - включить Autoscale осей
-    #         "Only Ox" - включить Autoscale только для оси Ox
-    #         "Only Oy" - включить Autoscale только для оси Оy
-    MOKO.Plugin('Graph', 'set', f"Autoscale={mode}")
-    #MOKO.Report(f'Autoscale_{index}', 'set', 'string', f'Autoscale = {mode}')
-    #MOKO.Report('Graph', 'set', 'table', f'Autoscale = {mode}')
-    #time.sleep(4)
-
-def ScreenshotCommand(index):
-    #Сделать скриншот и сохранить в папку
-    MOKO.Plugin('Graph', 'set', "Screenshot")
-    #MOKO.Report(f'Screenshot_{index}', 'set', 'string', f'Screenshot #{index} has done')
-    #MOKO.Report('Graph', 'set', 'table', f'Screenshot #{index} has done')
-    #time.sleep(4)
-
-def LegendCommand(index):
-    #Сделать скриншот и сохранить в папку
-    MOKO.Plugin('Graph', 'set', "Legend")
-    #MOKO.Report(f'Legend_{index}', 'set', 'string', f'LegendCommand has done')
-    #MOKO.Report('Graph', 'set', 'table', f'LegendCommand has done')
-    #time.sleep(4)
-
-
-def ClearGraphCommand():
-    #Очистить график
-    MOKO.Plugin('Graph', 'set', "Clear Graph")
-    #MOKO.Report(f'ClearGraph_{index}', 'set', 'string', f'Clear Graph command has done')
-    #MOKO.Report('Graph', 'set', 'table', 'Clear Graph command has done')
-    #time.sleep(4)
-
-def MaxValueCommand(numLine):
-    numLine = numLine #delete this
-    #Найти максимальное значение выбранной линии и установить курсор на это место
-    #MOKO.Plugin('Graph', 'set', f"Max={numLine}")
-    #MOKO.Report(f'Autoscale_{index}', 'set', 'string', f'Autoscale = {mode}')
-    #MOKO.Report('Graph', 'set', 'table', f'Max = {numLine}')
-    #time.sleep(1)
 
 def SinusGenerator(x,Ampl,freq,phase):
 
@@ -127,30 +26,20 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
                                                       + f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'\
                                                       + f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)};' \
                                                       + '\\r'
-        # MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i + 1};{round(ArrOx[i], 2)};{round(ArrOy[i], 2)};'
-        #                                               f'{i + 1};{round(ArrOx1[i], 2)};{round(ArrOy1[i], 2)}')
         i = i + 1
-
-#    while i < len(ArrOx):
-#        if i % 25 == 0 and i > 0:
-#            number = number + 1
-#        MOKO.Report(f'Graph_{number}', 'set', 'table', f'{i+1};{round(ArrOx[i],2)};{round(ArrOy[i],2)};'
-#                                              f'{i+1};{round(ArrOx1[i],2)};{round(ArrOy1[i],2)};'
-#                                              f'{i+1};{round(ArrOx2[i],2)};{round(ArrOy2[i],2)}')
-#        i = i + 1
 
 MOKO.Plugin('Graph', 'init', '')
 
 time.sleep(4)
 
-ClearGraphCommand()
+MGPH.ClearGraphCommand(1)
 
 #High Mask
 
 Value_OyOx = [-400,400,0,0.04]
 Name_OyOx = ["Amplitude", "Time"]
 Autoscale = "No"
-AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale)
+MGPH.AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale,1)
 
 #4th Plot
 name = "Plot 1"
@@ -159,9 +48,7 @@ ArrOx = [0,0.04]
 LineWidth = 3
 Color = "FF00FF" #Magenta
 Visible = "Yes"
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
 #5th Plot
 name = "Plot 1"
@@ -170,9 +57,7 @@ ArrOx = [0,0.04]
 LineWidth = 3
 Color = "FFFF00" #Yellow
 Visible = "Yes"
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
 #5th Plot
 name = "Plot 1"
@@ -181,9 +66,7 @@ ArrOx = [0,0.04]
 LineWidth = 3
 Color = "0" #Black
 Visible = "Yes"
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
 #Region Status
 #description: Frequency;Phase;Width;Color;Visible
@@ -191,10 +74,6 @@ WriteGraphCommand()
 #First Plot
 name = "Plot 1"  #hesh Plot 1: 40;90;3;Lime;Yes
 MOKO.Report('Name1;Name4;Name7;Name10', 'set', 'strings', f'{name};{name};{name};{name}')
-#MOKO.Report('Name1', 'set', 'string', f'{name}')
-#MOKO.Report('Name4', 'set', 'string', f'{name}')
-#MOKO.Report('Name7', 'set', 'string', f'{name}')
-#MOKO.Report('Name10', 'set', 'string', f'{name}')
 sampling_freq = 100
 start = 0
 stop = 0.05
@@ -206,11 +85,7 @@ ArrOx = list(x)
 LineWidth = 3
 Color = "00FF00" #Lime
 Visible = "Yes"
-AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
-
-#LegendCommand(1)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name, ArrOy, ArrOx,LineWidth,Color,Visible,1)
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot 1')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -221,10 +96,6 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 #Second Plot
 name = "Plot 2" #hesh Plot2: 40;0;3;Aqua;Yes
 MOKO.Report('Name2;Name5;Name8;Name11', 'set', 'strings', f'{name};{name};{name};{name}')
-#MOKO.Report('Name2', 'set', 'string', f'{name}')
-#MOKO.Report('Name5', 'set', 'string', f'{name}')
-#MOKO.Report('Name8', 'set', 'string', f'{name}')
-#MOKO.Report('Name11', 'set', 'string', f'{name}')
 sampling_freq = 100
 start = 0
 stop = 0.05
@@ -236,11 +107,7 @@ ArrOx1 = list(x)
 LineWidth = 3
 Color = "00FFFF" #Aqua
 Visible = "Yes"
-AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
-
-#LegendCommand(1)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name, ArrOy1, ArrOx1,LineWidth,Color,Visible,1)
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot2')
 MOKO.Program('tree', 'set', 'chosen = passed')
@@ -251,10 +118,6 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 #Third Plot
 name = "Plot 3"  #hesh Plot3: 40;-90;3;Red;Yes
 MOKO.Report('Name3;Name6;Name9;Name12', 'set', 'strings', f'{name};{name};{name};{name}')
-#MOKO.Report('Name3', 'set', 'string', f'{name}')
-#MOKO.Report('Name6', 'set', 'string', f'{name}')
-#MOKO.Report('Name9', 'set', 'string', f'{name}')
-#MOKO.Report('Name12', 'set', 'string', f'{name}')
 sampling_freq = 100
 start = 0
 stop = 0.05
@@ -266,11 +129,7 @@ ArrOx2 = list(x)
 LineWidth = 3
 Color = "FF0000" #Red
 Visible = "Yes"
-AddLineCommand(name, ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
-
-#LegendCommand(1)
-
-WriteGraphCommand()
+MGPH.AddLineCommand(name, ArrOy2, ArrOx2,LineWidth,Color,Visible,1)
 
 MOKO.Program('tree', 'set', 'select = ' + 'Plot3')
 MOKO.Program('tree', 'set', 'chosen = passed')
