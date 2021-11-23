@@ -14,7 +14,7 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1):
     number = 8
     sin_with_diff_freq = ''
     while i < 100 + 1:
-        if i % 25 == 0 and i > 0:
+        if i % 50 == 0 and i > 0:
             MOKO.Report(f'Graph_{number}', 'set', 'table', sin_with_diff_freq)
             sin_with_diff_freq = ''
             number = number + 1
@@ -79,8 +79,12 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 
 Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1)
 
-screen = MOKO.Plugin('Graph', 'get', 'Screenshot', 'string')
-MOKO.Report("Screenshot_3", 'set', 'picture', screen)
+command = "All"
+screen = MGPH.GetScreenshot(command)
+MOKO.Report("Screenshot_3_All", 'set', 'picture', screen)
+command = "Graph"
+screen = MGPH.GetScreenshot(command)
+MOKO.Report("Screenshot_3_Graph", 'set', 'picture', screen)
 
 MOKO.Program('control', 'set', 'save word report')
 

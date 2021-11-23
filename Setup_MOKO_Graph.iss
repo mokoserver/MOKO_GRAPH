@@ -1,15 +1,15 @@
 #define SourceDir "D:\GitHub\MOKO\MOKO_GRAPH\App"
 #define AppName "MOKO Graph"
-#define MOKOGraphLink "MOKO Graph"
-#define MOKOGraphExe "MOKO Graph"
-#define AppPublisher "MOKO Graph"
+#define GraphLink "MOKO Graph"
+#define GraphExe "MOKO Graph"
+#define AppPublisher "MOKO"
 #define AppVersion "0.06.19.1"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same Am nppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{A9BE419A-49E8-4942-8D7F-6057BAE01580}
+AppId={{F7E380BF-C77A-43BE-9154-9D7E266E5F92}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppVerName={#AppName} {#AppVersion}
@@ -37,8 +37,8 @@ Source: "Example script\*"; DestDir: "{app}\Example scripts" ;  Flags: ignorever
 Source: "Example script\Present Project\*"; DestDir: "{app}\Example scripts\Present Project" ;  Flags: ignoreversion  uninsremovereadonly
 
 [Icons]
-Name: "{commondesktop}\{#MOKOGraphExe}"; Filename: "{app}\{#MOKOGraphExe}.exe";
-Name: "{group}\{#MOKOGraphExe}"; Filename: "{app}\{#MOKOGraphExe}.exe";
+Name: "{commondesktop}\{#GraphExe}"; Filename: "{app}\{#GraphExe}.exe";
+Name: "{group}\{#GraphExe}"; Filename: "{app}\{#GraphExe}.exe";
 
 [Code]
 

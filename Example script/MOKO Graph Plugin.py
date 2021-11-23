@@ -86,9 +86,15 @@ MGPH.ChangeLineCommand(numLine, name, ArrOy, ArrOx,LineWidth,Color,Visible)
 
 MGPH.AutoscaleCommand("Yes")
 
-MGPH.ScreenshotCommand()
-screen = MOKO.Plugin('Graph', 'get', 'Screenshot', 'string')
+mode = "Graph"
+MGPH.ScreenshotCommand(mode)
+screen = MOKO.Plugin('Graph', 'get', f"Screenshot={mode}", 'string')
 MOKO.Report("Screenshot_1", 'set', 'picture', screen)
+
+mode = "graph"
+MGPH.ScreenshotCommand(mode)
+screen = MOKO.Plugin('Graph', 'get', f"Screenshot={mode}", 'string')
+MOKO.Report("Screenshot_2", 'set', 'picture', screen)
 
 numLine = [0,1,2,3]
 MGPH.HideLineCommand(numLine)

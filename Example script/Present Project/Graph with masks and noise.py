@@ -7,7 +7,7 @@ def Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2):
     number = 4
     plot_with_masks_n_noise = ''
     while i < len(ArrOx1)/10 and i < 101:
-        if i % 25 == 0 and i > 0:
+        if i % 50 == 0 and i > 0:
             MOKO.Report(f'Graph_{number}', 'set', 'table', plot_with_masks_n_noise)
             plot_with_masks_n_noise = ''
             number = number + 1
@@ -183,8 +183,12 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 
 Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1,ArrOx2,ArrOy2)
 
-screen = MOKO.Plugin('Graph', 'get', 'Screenshot', 'string')
-MOKO.Report("Screenshot_2", 'set', 'picture', screen)
+command = "All"
+screen = MGPH.GetScreenshot(command)
+MOKO.Report("Screenshot_2_All", 'set', 'picture', screen)
+command = "Graph"
+screen = MGPH.GetScreenshot(command)
+MOKO.Report("Screenshot_2_Graph", 'set', 'picture', screen)
 
 #MOKO.Program('control', 'set', 'save word report')
 

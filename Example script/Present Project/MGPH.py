@@ -40,16 +40,27 @@ def AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale):
     #Задание Autoscale: "Yes", "No", "Only Ox", "Only Oy"
     MOKO.Plugin('Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx};{Autoscale}")
 
-def AutoscaleCommand(mode):
+def AutoscaleCommand(command):
     #Команды: "No" - отключить Autoscale осей
     #         "Yes" - включить Autoscale осей
     #         "Only Ox" - включить Autoscale только для оси Ox
     #         "Only Oy" - включить Autoscale только для оси Оy
-    MOKO.Plugin('Graph', 'set', f"Autoscale={mode}")
+    MOKO.Plugin('Graph', 'set', f"Autoscale={command}")
 
-def ScreenshotCommand():
+def ScreenshotCommand(command):
     #Сделать скриншот и сохранить в папку
-    MOKO.Plugin('Graph', 'set', "Screenshot")
+    #command: All и Graph
+    #command: Graph - сделать скриншот только графика
+    #command: ALl - сделать скрин фронтальной панели программы
+    MOKO.Plugin('Graph', 'set', f"Screenshot={command}")
+
+def GetScreenshot(command):
+    #Сделать скриншот и сохранить в папку
+    #command: All и Graph
+    #command: Graph - сделать скриншот только графика
+    #command: ALl - сделать скрин фронтальной панели программы
+    screen = MOKO.Plugin('Graph', 'get', f"Screenshot={command}", 'string')
+    return screen
 
 def LegendCommand():
     #Показать легенду или скрыть
