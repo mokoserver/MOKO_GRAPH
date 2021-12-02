@@ -3,7 +3,7 @@
 #define GraphLink "MOKO Graph"
 #define GraphExe "MOKO Graph"
 #define AppPublisher "MOKO"
-#define AppVersion "0.06.19.1"
+#define AppVersion "0.06.19.2"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
