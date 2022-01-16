@@ -47,19 +47,22 @@ def AutoscaleCommand(command):
     #         "Only Oy" - включить Autoscale только для оси Оy
     MOKO.Plugin('Graph', 'set', f"Autoscale={command}")
 
-def ScreenshotCommand(command):
-    #Сделать скриншот и сохранить в папку
-    #command: All и Graph
-    #command: Graph - сделать скриншот только графика
-    #command: ALl - сделать скрин фронтальной панели программы
-    MOKO.Plugin('Graph', 'set', f"Screenshot={command}")
+def ScreenshotWindowCommand():
+    #Сделать скриншот фронтальной панели программы и сохранить в папку
+    MOKO.Plugin('Graph', 'set', f"Screenshot Window")
 
-def GetScreenshot(command):
-    #Сделать скриншот и сохранить в папку
-    #command: All и Graph
-    #command: Graph - сделать скриншот только графика
-    #command: ALl - сделать скрин фронтальной панели программы
-    screen = MOKO.Plugin('Graph', 'get', f"Screenshot={command}", 'string')
+def ScreenshotGraphCommand():
+    #Graph - сделать скриншот только графика
+    MOKO.Plugin('Graph', 'set', f"Screenshot Graph")
+
+def GetScreenshotWindow():
+    #Сделать скриншот фронтальной панели программы и сохранить в папку
+    screen = MOKO.Plugin('Graph', 'get', f"ScreenshotWindow", 'string')
+    return screen
+
+def GetScreenshotGraph():
+    #Graph - сделать скриншот только графика
+    screen = MOKO.Plugin('Graph', 'get', f"ScreenshotGraph", 'string')
     return screen
 
 def LegendCommand():

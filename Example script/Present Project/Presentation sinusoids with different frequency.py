@@ -79,11 +79,9 @@ MOKO.Program('tree', 'set', 'chosen = passed')
 
 Filling_the_Table(ArrOx,ArrOy,ArrOx1,ArrOy1)
 
-command = "All"
-screen = MGPH.GetScreenshot(command)
+screen = MGPH.GetScreenshotWindow()
 MOKO.Report("Screenshot_3_All", 'set', 'picture', screen)
-command = "Graph"
-screen = MGPH.GetScreenshot(command)
+screen = MGPH.GetScreenshotGraph()
 MOKO.Report("Screenshot_3_Graph", 'set', 'picture', screen)
 
 MOKO.Program('control', 'set', 'save word report')
