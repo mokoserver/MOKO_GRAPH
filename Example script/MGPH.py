@@ -19,12 +19,12 @@ def DeleteLineCommand(numLine):
     MOKO.Plugin('Graph', 'set', f"Delete Line={numLine}")
 
 def HideLineCommand(numLine):
-    #Команд: "All" - скрыть все линии, которые есть на графике, также
+    #Команда: "All" - скрыть все линии, которые есть на графике, также
     #Можно указывать как одну линию, так и массив с номерами линий для скрытия
     MOKO.Plugin('Graph', 'set', f"Hide Line={numLine}")
 
 def ShowLineCommand(numLine):
-    #Команд: "All" - показать все линии, которые есть на графике, также
+    #Команда: "All" - показать все линии, которые есть на графике, также
     #Можно указывать как одну линию, так и массив с номерами\именами линий для отображения
     #Опция "Only" - показать только те линии, номера которых были переданы,т.е. если на графике отображено
     #много линий, а нужно, чтобы на графике остались только конкретные, то используется эта опция
@@ -40,19 +40,30 @@ def AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale):
     #Задание Autoscale: "Yes", "No", "Only Ox", "Only Oy"
     MOKO.Plugin('Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx};{Autoscale}")
 
-def AutoscaleCommand(mode):
+def AutoscaleCommand(command):
     #Команды: "No" - отключить Autoscale осей
     #         "Yes" - включить Autoscale осей
     #         "Only Ox" - включить Autoscale только для оси Ox
     #         "Only Oy" - включить Autoscale только для оси Оy
-    MOKO.Plugin('Graph', 'set', f"Autoscale={mode}")
+    MOKO.Plugin('Graph', 'set', f"Autoscale={command}")
 
-def ScreenshotCommand(mode):
-    #Сделать скриншот и сохранить в папку
-    #mode : All и Graph
-    #mode:Graph - сделать скриншот только графика
-    #mode:ALl - сделать скрин фронтальной панели программы
-    MOKO.Plugin('Graph', 'set', f"Screenshot={mode}")
+def ScreenshotWindowCommand():
+    #Сделать скриншот фронтальной панели программы и сохранить в папку
+    MOKO.Plugin('Graph', 'set', f"Screenshot Window")
+
+def ScreenshotGraphCommand():
+    #Graph - сделать скриншот только графика
+    MOKO.Plugin('Graph', 'set', f"Screenshot Graph")
+
+def GetScreenshotWindow():
+    #Сделать скриншот фронтальной панели программы и сохранить в папку
+    screen = MOKO.Plugin('Graph', 'get', f"ScreenshotWindow", 'string')
+    return screen
+
+def GetScreenshotGraph():
+    #Graph - сделать скриншот только графика
+    screen = MOKO.Plugin('Graph', 'get', f"ScreenshotGraph", 'string')
+    return screen
 
 def LegendCommand():
     #Показать легенду или скрыть
