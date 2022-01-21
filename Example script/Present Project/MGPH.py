@@ -37,7 +37,7 @@ def ShowLineOnlyCommand(numLine):
 
 def AddGraphSettCommand(Value_OyOx, Name_OyOx, Autoscale):
     #Добавление подписей осей + min/max значения осей
-    #Задание Autoscale: "Yes", "No", "Only Ox", "Only Oy"
+    #Установка Autoscale: "Yes", "No", "Only Ox", "Only Oy"
     MOKO.Plugin('Graph', 'set', f"Add Graph Settings={Value_OyOx};{Name_OyOx};{Autoscale}")
 
 def AutoscaleCommand(command):
