@@ -3,7 +3,7 @@
 #define GraphLink "MOKO Graph"
 #define GraphExe "MOKO Graph"
 #define AppPublisher "MOKO"
-#define AppVersion "0.06.19.2"
+#define AppVersion "2.09.26.2"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -33,8 +33,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 Source: "App\*"; DestDir: "{app}\" ;  Flags: ignoreversion  uninsremovereadonly
-Source: "Example script\*"; DestDir: "{app}\Example scripts" ;  Flags: ignoreversion  uninsremovereadonly
-Source: "Example script\Present Project\*"; DestDir: "{app}\Example scripts\Present Project" ;  Flags: ignoreversion  uninsremovereadonly
+//Source: "Example script\*"; DestDir: "{app}\Example scripts" ;  Flags: ignoreversion  uninsremovereadonly
+//Source: "Example script\Present Project\*"; DestDir: "{app}\Example scripts\Present Project" ;  Flags: ignoreversion  uninsremovereadonly
 
 [Icons]
 Name: "{commondesktop}\{#GraphExe}"; Filename: "{app}\{#GraphExe}.exe";
